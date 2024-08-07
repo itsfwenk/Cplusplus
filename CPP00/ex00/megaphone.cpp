@@ -6,13 +6,13 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 19:44:10 by fli               #+#    #+#             */
-/*   Updated: 2024/08/05 23:56:25 by fli              ###   ########.fr       */
+/*   Updated: 2024/08/07 10:43:45 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-void	ft_megaphone(int argc, char **argv)
+static void	megaphone(int argc, char **argv)
 {
 	if (argc == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
@@ -22,11 +22,11 @@ void	ft_megaphone(int argc, char **argv)
 			argv[i][j] = toupper(argv[i][j]);
 		std::cout << argv[i];
 	}
-	std::cout << "\n";
+	std::cout << std::endl;
 }
 
 int		main(int argc, char **argv)
 {
-	ft_megaphone(argc, argv);
+	megaphone(argc, argv);
 	return (0);
 }
