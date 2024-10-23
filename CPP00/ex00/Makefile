@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/07 10:44:02 by fli               #+#    #+#              #
-#    Updated: 2024/08/07 11:26:30 by fli              ###   ########.fr        #
+#    Updated: 2024/10/23 17:46:44 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ NAME = megaphone
 
 OBJ = ${C_FILE:.cpp=.o}
 
-%.o: %.cpp
-	${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
+# %.o: %.cpp
+# 	${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
 
 ${NAME}: $(OBJ)
 	${CC} ${CXXFLAGS} ${OBJ} -o ${NAME}

@@ -6,10 +6,11 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 19:44:10 by fli               #+#    #+#             */
-/*   Updated: 2024/08/07 10:43:45 by fli              ###   ########.fr       */
+/*   Updated: 2024/09/28 10:28:35 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string>
 #include <iostream>
 
 static void	megaphone(int argc, char **argv)
