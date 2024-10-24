@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/05 19:44:10 by fli               #+#    #+#             */
-/*   Updated: 2024/10/24 14:12:43 by fli              ###   ########.fr       */
+/*   Created: 2024/10/24 14:44:13 by fli               #+#    #+#             */
+/*   Updated: 2024/10/24 17:10:50 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <string>
-#include <iostream>
+#include "phonebook.hpp"
 
-static void	megaphone(int argc, char **argv)
+Contact::Contact(void)
 {
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	else for (int i = 1; i < argc; i++)
-	{
-		for (int j = 0; argv[i][j] != '\0'; j++)
-			argv[i][j] = toupper(argv[i][j]);
-		std::cout << argv[i];
-	}
-	std::cout << std::endl;
+	return ;
 }
 
-int		main(int argc, char **argv)
+Contact::~Contact(void)
 {
-	megaphone(argc, argv);
-	return (0);
+	return ;
 }
