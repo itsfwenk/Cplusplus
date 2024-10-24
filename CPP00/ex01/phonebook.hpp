@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 11:27:33 by fli               #+#    #+#             */
-/*   Updated: 2024/10/24 17:28:11 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/24 17:53:18 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <string>
 # include <iostream>
 
-class Contact
+class	Contact
 {
 	private:
 		int			index;
@@ -29,13 +29,14 @@ class Contact
 	public:
 	Contact(void);
 	~Contact(void);
+
 };
 
-class PhoneBook
+class	PhoneBook
 {
 	private:
 		int		nb_contacts;
-		Contact	contact[8];
+		Contact	contact[7];
 
 	public:
 		PhoneBook(void);
