@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 11:27:33 by fli               #+#    #+#             */
-/*   Updated: 2024/10/24 17:53:18 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/25 18:23:24 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 
 # include <string>
 # include <iostream>
+# include <limits>
+#include <stdexcept>
 
 class	Contact
 {
 	private:
-		int			index;
 		std::string	first_name;
 		std::string	last_name;
 		std::string	nickname;
@@ -29,18 +30,23 @@ class	Contact
 	public:
 	Contact(void);
 	~Contact(void);
-
+	void	AddContact(void);
+	std::string	GetContactContent(int i);
 };
 
 class	PhoneBook
 {
 	private:
-		int		nb_contacts;
-		Contact	contact[7];
+		int		nb_add;
+		Contact	contact[8];
 
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);
+		void	Add(void);
+		void	Search(void);
+		void	DisplayContacts(void);
+		void	DisplayOneContact(int i);
 };
 
 #endif
