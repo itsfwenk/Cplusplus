@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 14:44:13 by fli               #+#    #+#             */
-/*   Updated: 2024/10/25 18:16:05 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/25 18:34:29 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,6 @@ void	Contact::AddContact(void)
 			continue;
 		i--;
 	}
-}
-
-static void	print_content(std::string str)
-{
-	if (str.length() >= 10)
-		std::cout << str.substr(0, 8) << "." << std::endl;
-	else
-		std::cout << str << std::endl;
 }
 
 std::string	Contact::GetContactContent(int i)
