@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 14:44:13 by fli               #+#    #+#             */
-/*   Updated: 2024/10/25 18:34:29 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/28 13:31:13 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static bool	only_digits(std::string number)
 		if (isdigit(*it) == 0)
 			return (false);
 	}
+	return (true);
 }
 
 static bool	check_input(int i, std::string user_input)
@@ -65,6 +66,20 @@ static bool	check_input(int i, std::string user_input)
 	return (true);
 }
 
+void	Contact::StoreInfo(int i, std::string input)
+{
+	if (i == 5)
+		this->first_name = input;
+	else if (i == 4)
+		this->last_name = input;
+	else if (i == 3)
+		this->nickname = input;
+	else if (i == 2)
+		this->phone_number = input;
+	else if (i == 1)
+		this->darkest_secret = input;
+}
+
 void	Contact::AddContact(void)
 {
 	int	i = 5;
@@ -83,6 +98,7 @@ void	Contact::AddContact(void)
 		}
 		if (check_input(i, user_input) == false)
 			continue;
+		this->StoreInfo(i, user_input);
 		i--;
 	}
 }
@@ -97,6 +113,5 @@ std::string	Contact::GetContactContent(int i)
 		return (this->nickname);
 	else if (i == 2)
 		return (this->phone_number);
-	else if (i == 1)
-		return (this->darkest_secret);
+	return (this->darkest_secret);
 }

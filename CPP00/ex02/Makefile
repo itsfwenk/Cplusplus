@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/07 10:44:02 by fli               #+#    #+#              #
-#    Updated: 2024/10/28 12:03:42 by fli              ###   ########.fr        #
+#    Updated: 2024/10/28 14:08:46 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ CC = c++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-C_FILE = phonebook.cpp contact.cpp main.cpp
+C_FILE =
 
-INCLUDES = phonebook.hpp
+INCLUDES =
 
-NAME = phonebook
+NAME =
 
 OBJ = ${C_FILE:.cpp=.o}
 
