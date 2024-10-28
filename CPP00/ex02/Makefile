@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/07 10:44:02 by fli               #+#    #+#              #
-#    Updated: 2024/10/28 14:08:46 by fli              ###   ########.fr        #
+#    Updated: 2024/10/28 18:12:15 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ CC = c++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-C_FILE =
+C_FILE = Account.cpp tests.cpp
 
-INCLUDES =
+INCLUDES = Account.hpp
 
-NAME =
+NAME = dreamjob
 
 OBJ = ${C_FILE:.cpp=.o}
 
