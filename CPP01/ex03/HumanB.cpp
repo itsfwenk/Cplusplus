@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 18:43:08 by fli               #+#    #+#             */
-/*   Updated: 2024/10/30 11:43:55 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/30 12:05:08 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ HumanB::~HumanB()
 
 void	HumanB::attack(void)
 {
-	std::cout << this->name << " attacks with their " << this->weapon->getType();
+	if (this->weapon == NULL)
+		std::cout << this->name << " attacks by throwing rocks (no weapon)";
+	else
+		std::cout << this->name << " attacks with their " << this->weapon->getType();
 	std::cout << std::endl;
 }
 
