@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 12:02:10 by fli               #+#    #+#             */
-/*   Updated: 2024/10/31 11:01:07 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/31 14:37:36 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int main(int ac, char **av)
 			break;
 		part1 = fileContent.substr(0, i);
 		part2 = fileContent.substr((i + ((std::string)av[2]).length()));
-		fileContent = part1 + av[3] + part2;
+		replaceFile << part1 << av[3];
+		fileContent = part2;
 	}
-	replaceFile << fileContent;
+	replaceFile << part2;
 }
