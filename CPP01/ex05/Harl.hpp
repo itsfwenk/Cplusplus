@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:42:07 by fli               #+#    #+#             */
-/*   Updated: 2024/10/31 11:40:37 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/31 17:38:40 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <iostream>
 # include <string>
-# include <algorithm>
-# include <vector>
 
 class Harl
 {

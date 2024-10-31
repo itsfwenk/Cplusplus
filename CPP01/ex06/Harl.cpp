@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:42:07 by fli               #+#    #+#             */
-/*   Updated: 2024/10/29 17:44:24 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/31 17:40:27 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,18 @@ Harl::~Harl()
 
 void Harl::complain( std::string level )
 {
-	std::transform(level.begin(), level.end(), level.begin(),
-		[](unsigned char c)
-			{
-				return std::tolower(c);
-			});
-	std::vector<std::string> levels = {"debug", "info", "warning", "error"};
+	int	i = 0;
+
+	while (level[i])
+	{
+		if (level[i] >= 'A' && level[i] <= 'Z')
+			level[i] = level[i] + ('a' - 'A');
+		i++;
+	}
+	std::string	levels[4] = {"debug", "info", "warning", "error"};
 	void (Harl::*harlFunc[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	size_t	logLevel = 4;
-	for (size_t i = 0; i < 4; i++)
+	int	logLevel = 4;
+	for (i = 0; i < 4; i++)
 	{
 		if (level == levels[i])
 			logLevel = i;

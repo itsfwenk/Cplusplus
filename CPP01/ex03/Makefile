@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/07 10:44:02 by fli               #+#    #+#              #
-#    Updated: 2024/10/29 20:04:29 by fli              ###   ########.fr        #
+#    Updated: 2024/10/31 17:43:10 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 C_FILE = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
-INCLUDES = includes
+INCLUDES = .
 
 NAME = violence
 
