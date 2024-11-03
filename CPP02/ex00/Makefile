@@ -16,7 +16,7 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 C_FILE = main.cpp Fixed.cpp
 
-INCLUDES = includes
+INCLUDES = .
 
 NAME = FixedPointNumber
 

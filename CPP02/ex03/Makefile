@@ -14,11 +14,11 @@ CC = c++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-C_FILE = main.cpp Harl.cpp
+C_FILE = main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 INCLUDES = .
 
-NAME = harl
+NAME = FixedPointNumber
 
 OBJ = ${C_FILE:.cpp=.o}
 

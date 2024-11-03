@@ -16,7 +16,7 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 C_FILE = main.cpp Harl.cpp
 
-INCLUDES = includes
+INCLUDES = .
 
 NAME = harlFilter
 
