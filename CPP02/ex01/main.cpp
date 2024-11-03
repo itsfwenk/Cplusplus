@@ -12,36 +12,21 @@
 
 #include "Fixed.hpp"
 
-Fixed::Fixed()
-{
-	std::cout << "Default constructor called" << std::endl;
-}
+#include <iostream>
 
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
-}
-
-Fixed::Fixed(const Fixed &other) value(other.value)
-{
-	std::cout << "Copy constructor called" << std::endl;
-}
-
-Fixed& Fixed::operator=(const Fixed &other)
-{
-	std::cout << "Copy assignment operator called" << std::endl;
-	this->n_value = other.n_value;
-	return (*this);
-}
-
-int Fixed::getRawBits( void ) const
-{
-	std::cout << "getRawBits member function called" << std::endl;
-	return (this->n_value);
-}
-
-void Fixed::setRawBits( int const raw )
-{
-	std::cout << "setRawBits member function called" << std::endl;
-	this->n_value = raw;
+int main( void ) {
+Fixed a;
+Fixed const b( 10 );
+Fixed const c( 42.42f );
+Fixed const d( b );
+a = Fixed( 1234.4321f );
+std::cout << "a is " << a << std::endl;
+std::cout << "b is " << b << std::endl;
+std::cout << "c is " << c << std::endl;
+std::cout << "d is " << d << std::endl;
+std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+return 0;
 }

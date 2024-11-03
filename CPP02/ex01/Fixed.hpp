@@ -10,38 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
 
-Fixed::Fixed()
-{
-	std::cout << "Default constructor called" << std::endl;
-}
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
-}
+# include <iostream>
+# include <string>
+# include <cmath>
 
-Fixed::Fixed(const Fixed &other) value(other.value)
+class Fixed
 {
-	std::cout << "Copy constructor called" << std::endl;
-}
+	private:
+		int	n_value;
+		static const int	n_fbits = 8;
+	public:
+		Fixed();
+		~Fixed();
+		Fixed(const Fixed &other);
+		Fixed(const int nb);
+		Fixed(const float nb);
 
-Fixed& Fixed::operator=(const Fixed &other)
-{
-	std::cout << "Copy assignment operator called" << std::endl;
-	this->n_value = other.n_value;
-	return (*this);
-}
+		Fixed& operator=(const Fixed &other);
 
-int Fixed::getRawBits( void ) const
-{
-	std::cout << "getRawBits member function called" << std::endl;
-	return (this->n_value);
-}
+		int getRawBits( void ) const;
+		void setRawBits( int const raw );
+		float toFloat( void ) const;
+		int toInt( void ) const;
+};
 
-void Fixed::setRawBits( int const raw )
-{
-	std::cout << "setRawBits member function called" << std::endl;
-	this->n_value = raw;
-}
+std::ostream& operator<<(std::ostream &out, Fixed const &a);
+
+#endif
