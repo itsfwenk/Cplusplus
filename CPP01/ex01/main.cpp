@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:42:07 by fli               #+#    #+#             */
-/*   Updated: 2024/10/31 17:44:05 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/04 15:21:37 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int main()
 	ss >> n;
 	while (n <= 0)
 	{
-		std::cout << "Invalid number of zombie.";
+		std::cout << "Invalid number of zombie." << std::endl;
+		std::cout << "Enter zombie horde size : ";
 		std::cin >> input;
 		std::stringstream ss(input);
 		ss >> n;

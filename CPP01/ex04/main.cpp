@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 12:02:10 by fli               #+#    #+#             */
-/*   Updated: 2024/10/31 14:37:36 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/04 15:41:08 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int main(int ac, char **av)
 {
-	if (ac != 4)
+	if (ac != 4 || av[2][0] == '\0')
 	{
-		std::cout << "Invalid number of parameters. Please enter a filename and two strings";
+		std::cout << "Invalid parameters." << std::endl;
 		return(0);
 	}
 	std::ifstream	inputFile(av[1]);
@@ -33,16 +33,16 @@ int main(int ac, char **av)
 		std::cerr << "Failed to create .replace file" << std::endl;
 		return (1);
 	}
-	std::string	line;
+	char		c;
 	std::string	fileContent;
-	while (std::getline(inputFile, line))
+	while (inputFile.get(c))
 	{
-		fileContent.append(line);
-		fileContent.append("\n");
+		fileContent += c;
 	}
+	inputFile.close();
 	int	i = 0;
 	std::string	part1;
-	std::string	part2;
+	std::string	part2 = fileContent;
 	while (fileContent[i])
 	{
 		i = fileContent.find(av[2]);
@@ -54,4 +54,5 @@ int main(int ac, char **av)
 		fileContent = part2;
 	}
 	replaceFile << part2;
+	replaceFile.close();
 }
