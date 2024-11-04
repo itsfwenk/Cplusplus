@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/07 10:44:02 by fli               #+#    #+#              #
-#    Updated: 2024/11/04 19:56:41 by fli              ###   ########.fr        #
+#    Updated: 2024/11/04 19:56:53 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ CC = c++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-C_FILE = main.cpp ClapTrap.cpp
+C_FILE = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 INCLUDES = .
 
-NAME = ClapTrap
+NAME = ScavTrap
 
 OBJ = ${C_FILE:.cpp=.o}
 
