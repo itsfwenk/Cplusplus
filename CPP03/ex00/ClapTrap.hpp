@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:30 by fli               #+#    #+#             */
-/*   Updated: 2024/11/04 14:23:34 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/04 17:48:04 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class	ClapTrap
 		ClapTrap(const ClapTrap &other);
 		ClapTrap& operator=(const ClapTrap &other);
 
-		ClapTrap(std::string);
+		ClapTrap(std::string name);
 
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
