@@ -6,15 +6,14 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:39:00 by fli               #+#    #+#             */
-/*   Updated: 2024/11/04 10:39:01 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/04 13:24:13 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 #include <iostream>
 
-Fixed	getArea(Point const a, Point const b, Point const c);
-bool bsp( Point const a, Point const b, Point const c, Point const point);
+bool bsp(const Point& A, const Point& B, const Point& C, const Point& P);
 
 int main( void )
 {

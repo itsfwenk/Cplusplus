@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 10:39:05 by fli               #+#    #+#              #
-#    Updated: 2024/11/04 10:39:07 by fli              ###   ########.fr        #
+#    Updated: 2024/11/04 10:44:21 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ C_FILE = main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 INCLUDES = .
 
-NAME = FixedPointNumber
+NAME = bsp
 
 OBJ = ${C_FILE:.cpp=.o}
 

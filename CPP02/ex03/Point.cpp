@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:39:10 by fli               #+#    #+#             */
-/*   Updated: 2024/11/04 10:39:12 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/04 11:31:36 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ Point& Point::operator=(const Point &other)
 	return (*this);
 }
 
+Point Point::operator-(const Point &other) const
+{
+	return Point((this->x - other.x).toFloat(), (this->y - other.y).toFloat());
+}
+
 Fixed	Point::getX() const
 {
 	return this->x;
@@ -51,3 +56,14 @@ Fixed	Point::getY() const
 {
 	return this->y;
 }
+
+// float crossProduct(const Point& v1, const Point& v2)
+// {
+// 	return ((v1.getX() * v2.getY() - v1.getY() * v2.getX()).toFloat());
+// }
+
+// Point vector(const Point& p1, const Point& p2)
+// {
+// 	Point	tmpPoint = p1 - p2;
+// 	return tmpPoint;
+// }
