@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                           :+:      :+:    :+:   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 14:42:07 by fli               #+#    #+#             */
-/*   Updated: 2024/10/31 17:40:27 by fli              ###   ########.fr       */
+/*   Created: 2024/11/04 10:36:09 by fli               #+#    #+#             */
+/*   Updated: 2024/11/04 10:39:49 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &other) value(other.value)
+Fixed::Fixed(const Fixed &other) : n_value(other.n_value)
 {
 	std::cout << "Copy constructor called" << std::endl;
 }
