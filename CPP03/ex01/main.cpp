@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:07:16 by fli               #+#    #+#             */
-/*   Updated: 2024/11/04 19:58:37 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/05 10:52:46 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int main()
 	oignon.attack("Bichette");
 	charles.attack("Bibiche");
 
-	charles.takeDamage(2147483699);
+	charles.takeDamage(6);
 	oignon.takeDamage(6);
 	charles.beRepaired(6);
-	oignon.beRepaired(2147483699);
+	oignon.beRepaired(6);
 	oignon.guardGate();
 }
