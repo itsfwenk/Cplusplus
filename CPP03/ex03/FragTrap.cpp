@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 19:06:39 by fli               #+#    #+#             */
-/*   Updated: 2024/11/05 15:10:41 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/05 17:12:56 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 FragTrap::FragTrap() : ClapTrap("CharlesOignon", 100, 100, 30)
 {
 	std::cout << CYAN << "FragTrap default contructor called." << DEFAULT << std::endl;
+	// std::cout << "In Frag, HP now is: " << this->HitPoints << std::endl;
+	// this->Name = "CharlesOignon";
+	// this->HitPoints = 100;
+	// this->EnergyPoints = 100;
+	// this->AttackDamage = 30;
 }
 
 FragTrap::~FragTrap()
@@ -59,4 +64,39 @@ void	FragTrap::attack(const std::string& target)
 void	FragTrap::highFivesGuys(void)
 {
 	std::cout << CYAN << "FragTrap " << this->Name << " high fives you !" << DEFAULT << std::endl;
+}
+
+std::string	FragTrap::getName()
+{
+	return(this->Name);
+}
+
+int	FragTrap::getHitPoints()
+{
+	return (this->HitPoints);
+}
+
+int	FragTrap::getEnergyPoints()
+{
+	return (this->EnergyPoints);
+}
+
+int	FragTrap::getAttackDamage()
+{
+	return (this->AttackDamage);
+}
+
+void	FragTrap::setHitPoints(int HP)
+{
+	this->HitPoints = HP;
+}
+
+void	FragTrap::setEnergyPoints(int EP)
+{
+	this->EnergyPoints = EP;
+}
+
+void	FragTrap::setAttackDamage(int AD)
+{
+	this->AttackDamage = AD;
 }

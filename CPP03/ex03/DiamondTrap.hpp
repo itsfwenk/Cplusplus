@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:41:36 by fli               #+#    #+#             */
-/*   Updated: 2024/11/05 13:49:52 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/05 14:10:04 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
 # include <iostream>
 # include <string>
 # include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
 # define DEFAULT "\033[0m"
 # define RED "\033[31m"
@@ -25,20 +27,26 @@
 # define MAGENTA "\033[35m"
 # define CYAN "\033[36m"
 
-class FragTrap : public ClapTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
 	private:
-
+		std::string	name;
 	public:
-	FragTrap();
-	~FragTrap();
-	FragTrap(const FragTrap &other);
-	FragTrap& operator=(const FragTrap &other);
+		DiamondTrap();
+		~DiamondTrap();
+		DiamondTrap(const DiamondTrap &other);
+		DiamondTrap& operator=(const DiamondTrap &other);
 
-	FragTrap(std::string name);
+		DiamondTrap(std::string name);
 
-	void	attack(const std::string& target);
-	void	highFivesGuys(void);
+		void	whoAmI();
+		using ScavTrap::attack;
+
+		int		getHitPoints();
+		int		getEnergyPoints();
+		int		getAttackDamage();
 };
+
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:41:36 by fli               #+#    #+#             */
-/*   Updated: 2024/11/05 13:49:52 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/05 17:12:31 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define MAGENTA "\033[35m"
 # define CYAN "\033[36m"
 
-class FragTrap : public ClapTrap
+class FragTrap : public virtual ClapTrap
 {
 	private:
 
@@ -39,6 +39,15 @@ class FragTrap : public ClapTrap
 
 	void	attack(const std::string& target);
 	void	highFivesGuys(void);
+
+	std::string	getName();
+
+	int		getHitPoints();
+	int		getEnergyPoints();
+	int		getAttackDamage();
+	void	setHitPoints(int HP);
+	void	setEnergyPoints(int EP);
+	void	setAttackDamage(int AD);
 };
 
 #endif
