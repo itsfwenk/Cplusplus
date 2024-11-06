@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:52:37 by fli               #+#    #+#             */
-/*   Updated: 2024/11/06 15:15:23 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/06 19:17:48 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,26 @@
 #include "dog.hpp"
 #include "wrongAnimal.hpp"
 #include "wrongCat.hpp"
+#include "brain.hpp"
 
 int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	j->makeSound();
-	i->makeSound(); //will output the cat sound!
-	meta->makeSound();
+	// Animal	*animalArray[10];
 
-	wrongAnimal* notCat = new wrongCat();
-	notCat->makeSound();
-	delete notCat;
-	delete meta;
-	delete i;
-	delete j;
-	return 0;
+	// int i;
+	// for(i = 0; i < 5; i++)
+	// 	animalArray[i] = new Dog();
+	// for (i = 5; i < 10; i++)
+	// 	animalArray[i] = new Cat();
+
+	// for (i = 0; i < 10; i++)
+	// 	delete animalArray[i];
+
+	std::cout << "Lets copy a cat :" << std::endl;
+	Cat *cat1 = new Cat();
+	Cat *cat2 = new Cat();
+	*cat2 = *cat1;
+	delete cat1;
+	cat2->makeSound();
+
 }

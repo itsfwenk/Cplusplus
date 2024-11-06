@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/07 10:44:02 by fli               #+#    #+#              #
-#    Updated: 2024/11/06 13:26:37 by fli              ###   ########.fr        #
+#    Updated: 2024/11/06 18:23:05 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = c++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-C_FILE = main.cpp animal.cpp cat.cpp dog.cpp wrongAnimal.cpp wrongCat.cpp
+C_FILE = main.cpp animal.cpp cat.cpp dog.cpp wrongAnimal.cpp wrongCat.cpp brain.cpp
 
 INCLUDES = .
 

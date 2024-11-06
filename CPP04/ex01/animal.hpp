@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:54:05 by fli               #+#    #+#             */
-/*   Updated: 2024/11/06 14:59:03 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/06 17:37:07 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string>
 # include <iostream>
+# include "brain.hpp"
 
 # define DEFAULT "\033[0m"
 # define RED "\033[31m"
