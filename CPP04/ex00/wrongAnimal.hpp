@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animal.hpp                                         :+:      :+:    :+:   */
+/*   wrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:54:05 by fli               #+#    #+#             */
-/*   Updated: 2024/11/06 14:59:03 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/06 15:11:01 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 # include <string>
 # include <iostream>
@@ -24,20 +24,21 @@
 # define MAGENTA "\033[35m"
 # define CYAN "\033[36m"
 
-class Animal
+class wrongAnimal
 {
 	private:
+		std::string sound;
 	protected:
 		std::string type;
 	public:
-		Animal();
-		virtual ~Animal();
-		Animal(const Animal &other);
-		Animal& operator=(const Animal &other);
+		wrongAnimal();
+		virtual ~wrongAnimal();
+		wrongAnimal(const wrongAnimal &other);
+		wrongAnimal& operator=(const wrongAnimal &other);
 
-		Animal(std::string type);
+		wrongAnimal(std::string type);
 
-		virtual void makeSound(void) const;
+		void makeSound(void) const;
 		std::string getType() const;
 };
 

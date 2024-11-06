@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:56:59 by fli               #+#    #+#             */
-/*   Updated: 2024/11/05 19:04:41 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/06 14:51:20 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class Dog : public Animal
 		~Dog();
 		Dog(const Dog &other);
 		Dog& operator=(const Dog &other);
+
+		void	makeSound(void) const;
 };
 
 #endif
