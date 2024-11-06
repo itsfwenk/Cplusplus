@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 12:02:10 by fli               #+#    #+#             */
-/*   Updated: 2024/11/04 15:41:08 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/06 17:14:48 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main(int ac, char **av)
 	int	i = 0;
 	std::string	part1;
 	std::string	part2 = fileContent;
-	while (fileContent[i])
+	while (true)
 	{
 		i = fileContent.find(av[2]);
 		if (i == std::string::npos)
