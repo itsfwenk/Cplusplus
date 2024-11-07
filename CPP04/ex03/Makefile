@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/07 10:44:02 by fli               #+#    #+#              #
-#    Updated: 2024/11/07 17:26:31 by fli              ###   ########.fr        #
+#    Updated: 2024/11/07 17:23:17 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ CC = c++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-C_FILE = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+C_FILE = main.cpp
 
 INCLUDES = .
 
-NAME = polymorphism
+NAME = interface
 
 OBJ = ${C_FILE:.cpp=.o}
 

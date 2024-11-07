@@ -6,16 +6,16 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:52:37 by fli               #+#    #+#             */
-/*   Updated: 2024/11/07 12:19:22 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/07 17:33:28 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal.hpp"
-#include "cat.hpp"
-#include "dog.hpp"
-#include "wrongAnimal.hpp"
-#include "wrongCat.hpp"
-#include "brain.hpp"
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
+#include "Brain.hpp"
 
 int main()
 {

@@ -6,15 +6,15 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:52:37 by fli               #+#    #+#             */
-/*   Updated: 2024/11/06 15:15:23 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/07 17:28:36 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal.hpp"
-#include "cat.hpp"
-#include "dog.hpp"
-#include "wrongAnimal.hpp"
-#include "wrongCat.hpp"
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
@@ -27,7 +27,7 @@ int main()
 	i->makeSound(); //will output the cat sound!
 	meta->makeSound();
 
-	wrongAnimal* notCat = new wrongCat();
+	WrongAnimal* notCat = new WrongCat();
 	notCat->makeSound();
 	delete notCat;
 	delete meta;
