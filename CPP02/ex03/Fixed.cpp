@@ -6,13 +6,13 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:38:45 by fli               #+#    #+#             */
-/*   Updated: 2024/11/04 10:38:47 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/07 10:33:22 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed()
+Fixed::Fixed() : n_value(0)
 {
 	// std::cout << "Default constructor called" << std::endl;
 }
