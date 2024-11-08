@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 19:28:14 by fli               #+#    #+#             */
-/*   Updated: 2024/11/07 19:54:59 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/08 14:25:29 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 class Character : public ICharacter
 {
 	private :
+		std::string	_name;
 		int			_equipped;
 		AMateria	*_inventory[4];
 	public :
@@ -28,6 +29,8 @@ class Character : public ICharacter
 		~Character();
 		Character(const Character &other);
 		Character& operator=(const Character &other);
+
+		Character(std::string name);
 
 		virtual std::string const & getName();
 		virtual void equip(AMateria* m);
