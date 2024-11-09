@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 19:05:06 by fli               #+#    #+#             */
-/*   Updated: 2024/11/07 17:29:15 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/09 16:55:30 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ WrongAnimal::~WrongAnimal()
 	std::cout << YELLOW << "WrongAnimal default destructor called" << DEFAULT << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &other) : type(other.type), sound(other.sound)
+WrongAnimal::WrongAnimal(const WrongAnimal &other) : sound(other.sound), type(other.type)
 {
 	std::cout << YELLOW << "WrongAnimal copy constructor called" << DEFAULT << std::endl;
 }

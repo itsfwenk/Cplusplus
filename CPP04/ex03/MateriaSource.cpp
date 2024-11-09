@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 18:04:05 by fli               #+#    #+#             */
-/*   Updated: 2024/11/09 16:47:30 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/09 17:01:19 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ MateriaSource::MateriaSource() : _equipped(0)
 MateriaSource::~MateriaSource()
 {
 	std::cout << "MateriaSource default destructor called" << std::endl;
-	for (int i = 0; i < 4; i++)
+	int i;
+	for (i = 0; i < _equipped; i++)
 		delete _inventory[i];
 }
 
@@ -59,7 +60,7 @@ void MateriaSource::learnMateria(AMateria* m)
 
 	if (this->_equipped == 4)
 		return ;
-	while (this->_inventory[i] != NULL)
+	while (i < _equipped)
 		i++;
 	this->_inventory[i] = m->clone();
 	this->_equipped++;

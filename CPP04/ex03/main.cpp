@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 15:42:26 by fli               #+#    #+#             */
-/*   Updated: 2024/11/09 16:51:06 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/09 17:07:20 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,12 @@
 int main()
 {
 	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
+	AMateria *IceMateria = new Ice();
+	AMateria *CureMateria = new Cure();
+	src->learnMateria(IceMateria);
+	src->learnMateria(CureMateria);
+	delete IceMateria;
+	delete CureMateria;
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
 	tmp = src->createMateria("ice");

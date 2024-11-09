@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 18:59:02 by fli               #+#    #+#             */
-/*   Updated: 2024/11/09 16:50:35 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/09 17:04:07 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	Character::equip(AMateria* m)
 {
 	int	i = 0;
 
-	while (this->_inventory[i] != NULL)
+	while (i < this->_equipped)
 		i++;
 	if (i == 4 || m == NULL)
 		return ;
