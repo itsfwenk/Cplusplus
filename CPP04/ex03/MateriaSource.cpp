@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 18:04:05 by fli               #+#    #+#             */
-/*   Updated: 2024/11/09 15:34:30 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/09 16:47:30 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 	}
 
 	AMateria	*newMateria;
-	if (i != 4)
+	if (i != 4 && i < _equipped)
 	{
 		newMateria = this->_inventory[i]->clone();
 		return (newMateria);

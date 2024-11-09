@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 18:59:02 by fli               #+#    #+#             */
-/*   Updated: 2024/11/09 16:27:00 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/09 16:50:35 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
 
-Character::Character()
-	: _name("Fatima"), _equipped(0), _inventory{NULL, NULL, NULL, NULL}
+Character::Character() : _name("Fatima"), _equipped(0)
 {
 	std::cout << "Character default constructor called" << std::endl;
+	_inventory[0] = NULL;
+	_inventory[1] = NULL;
+	_inventory[2] = NULL;
+	_inventory[3] = NULL;
 }
 
 Character::~Character()
@@ -59,10 +62,13 @@ Character&	Character::operator=(const Character &other)
 	return (*this);
 }
 
-Character::Character(std::string name)
-	: _name(name), _equipped(0), _inventory{NULL, NULL, NULL, NULL}
+Character::Character(std::string name) : _name(name), _equipped(0)
 {
 	std::cout << "Character name constructor called" << std::endl;
+	_inventory[0] = NULL;
+	_inventory[1] = NULL;
+	_inventory[2] = NULL;
+	_inventory[3] = NULL;
 }
 
 std::string const &Character::getName() const
@@ -76,7 +82,7 @@ void	Character::equip(AMateria* m)
 
 	while (this->_inventory[i] != NULL)
 		i++;
-	if (i == 4)
+	if (i == 4 || m == NULL)
 		return ;
 	this->_inventory[i] = m;
 	this->_equipped++;
