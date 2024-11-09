@@ -6,14 +6,20 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 18:59:02 by fli               #+#    #+#             */
-/*   Updated: 2024/11/08 17:59:30 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/09 16:27:00 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "AMateria.hpp"
 #include "Character.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include "ICharacter.hpp"
+#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
 
 Character::Character()
-	: _name("Brigitte"), _equipped(0), _inventory{nullptr, nullptr, nullptr, nullptr}
+	: _name("Fatima"), _equipped(0), _inventory{NULL, NULL, NULL, NULL}
 {
 	std::cout << "Character default constructor called" << std::endl;
 }
@@ -29,7 +35,10 @@ Character::Character(const Character &other) : _equipped(other._equipped)
 {
 	std::cout << "Character copy constructor called" << std::endl;
 	if (this->_equipped != 0)
-		delete [] this->_inventory;
+	{
+		for (int i = 0; i < 4; i++)
+			delete this->_inventory[i];
+	}
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = other._inventory[i]->clone();
 }
@@ -51,12 +60,12 @@ Character&	Character::operator=(const Character &other)
 }
 
 Character::Character(std::string name)
-	: _name(name), _equipped(0), _inventory{nullptr, nullptr, nullptr, nullptr}
+	: _name(name), _equipped(0), _inventory{NULL, NULL, NULL, NULL}
 {
 	std::cout << "Character name constructor called" << std::endl;
 }
 
-std::string const &Character::getName()
+std::string const &Character::getName() const
 {
 	return (this->_name);
 }
@@ -65,7 +74,7 @@ void	Character::equip(AMateria* m)
 {
 	int	i = 0;
 
-	while (this->_inventory[i] != nullptr)
+	while (this->_inventory[i] != NULL)
 		i++;
 	if (i == 4)
 		return ;
@@ -77,7 +86,7 @@ void	Character::unequip(int idx)
 {
 	if (idx >= 4 || idx < 0)
 		return ;
-	this->_inventory[idx] = nullptr;
+	this->_inventory[idx] = NULL;
 	this->_equipped--;
 }
 

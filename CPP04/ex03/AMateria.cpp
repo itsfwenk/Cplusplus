@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 18:59:02 by fli               #+#    #+#             */
-/*   Updated: 2024/11/07 19:24:14 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/09 16:25:56 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ std::string const& AMateria::getType() const
 
 void	AMateria::use(ICharacter& target)
 {
-
+	std::cout << target.getName() << std::endl;
 }

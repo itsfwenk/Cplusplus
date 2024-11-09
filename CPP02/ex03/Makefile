@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 10:39:05 by fli               #+#    #+#              #
-#    Updated: 2024/11/04 10:44:21 by fli              ###   ########.fr        #
+#    Updated: 2024/11/09 16:29:17 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ NAME = bsp
 OBJ = ${C_FILE:.cpp=.o}
 
 %.o: %.cpp
-	${CC} ${CFLAGS} -I ${INCLUDES} -c $< -o ${<:.cpp=.o}
+	${CC} ${CXXFLAGS} -I ${INCLUDES} -c $< -o ${<:.cpp=.o}
 
 ${NAME}: $(OBJ)
 	${CC} ${CXXFLAGS} ${OBJ} -I ${INCLUDES} -o ${NAME}

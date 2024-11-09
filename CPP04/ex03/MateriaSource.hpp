@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 18:02:32 by fli               #+#    #+#             */
-/*   Updated: 2024/11/08 18:11:20 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/09 16:12:12 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class MateriaSource : public IMateriaSource
 		AMateria	*_inventory[4];
 	public:
 		MateriaSource();
-		~MateriaSource() {};
+		~MateriaSource();
 		MateriaSource(const MateriaSource &other);
 		MateriaSource &operator=(const MateriaSource &other);
 

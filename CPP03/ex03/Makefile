@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/07 10:44:02 by fli               #+#    #+#              #
-#    Updated: 2024/11/05 11:43:33 by fli              ###   ########.fr        #
+#    Updated: 2024/11/09 16:27:57 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ NAME = DiamondTrap
 OBJ = ${C_FILE:.cpp=.o}
 
 %.o: %.cpp
-	${CC} ${CFLAGS} -I ${INCLUDES} -c $< -o ${<:.cpp=.o}
+	${CC} ${CXXFLAGS} -I ${INCLUDES} -c $< -o ${<:.cpp=.o}
 
 ${NAME}: $(OBJ)
 	${CC} ${CXXFLAGS} ${OBJ} -I ${INCLUDES} -o ${NAME}

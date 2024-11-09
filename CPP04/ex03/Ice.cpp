@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 15:29:49 by fli               #+#    #+#             */
-/*   Updated: 2024/11/08 17:08:07 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/09 16:16:23 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ Ice::Ice(const Ice &other) : AMateria(other.type)
 Ice	&Ice::operator=(const Ice &other)
 {
 	std::cout << "Ice copy assignment constructor called" << std::endl;
-	this->type = other.type;
+	if (this != &other)
+		this->type = other.type;
+	return (*this);
 }
 
 AMateria* Ice::clone() const

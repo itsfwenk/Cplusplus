@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 15:29:49 by fli               #+#    #+#             */
-/*   Updated: 2024/11/08 17:10:05 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/09 16:16:03 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ Cure::Cure(const Cure &other) : AMateria(other.type)
 Cure	&Cure::operator=(const Cure &other)
 {
 	std::cout << "Cure copy assignment constructor called" << std::endl;
-	this->type = other.type;
+	if (this != &other)
+		this->type = other.type;
+	return (*this);
 }
 
 AMateria* Cure::clone() const

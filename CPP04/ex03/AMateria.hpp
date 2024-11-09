@@ -6,10 +6,11 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 18:51:15 by fli               #+#    #+#             */
-/*   Updated: 2024/11/08 14:39:40 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/09 16:25:00 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef AMATERIA_HPP
 #define AMATERIA_HPP
 
@@ -24,7 +25,7 @@ class AMateria
 		std::string type;
 	public:
 		AMateria();
-		~AMateria();
+		virtual ~AMateria();
 		AMateria(const AMateria &other);
 		AMateria& operator=(const AMateria &other);
 
