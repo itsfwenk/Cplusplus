@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:54:05 by fli               #+#    #+#             */
-/*   Updated: 2024/11/07 17:38:46 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/09 17:25:05 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class WrongAnimal
 		WrongAnimal(std::string type);
 
 		void makeSound(void) const;
-		std::string getType() const;
+		const std::string &getType() const;
 };
 
 #endif

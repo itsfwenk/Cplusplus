@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 19:05:06 by fli               #+#    #+#             */
-/*   Updated: 2024/11/09 16:56:10 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/09 17:25:19 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	WrongAnimal::makeSound(void) const
 	std::cout << "Meep" << std::endl;
 }
 
-std::string WrongAnimal::getType() const
+const std::string &WrongAnimal::getType() const
 {
 	return (this->type);
 }
