@@ -6,16 +6,16 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:56:58 by fli               #+#    #+#             */
-/*   Updated: 2024/11/07 17:37:27 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/07 17:33:00 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 # define CAT_HPP
 
-# include "AAnimal.hpp"
+# include "Animal.hpp"
 
-class Cat : public AAnimal
+class Cat : public Animal
 {
 	private:
 		Brain *brain;
