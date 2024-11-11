@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 19:15:19 by fli               #+#    #+#             */
-/*   Updated: 2024/11/07 17:32:54 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/11 11:00:58 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ Cat::Cat(const Cat &other) : Animal(other.type)
 	std::cout << RED << "Cat copy constructor called" << DEFAULT << std::endl;
 
 	this->brain = new Brain();
-		brain = other.brain;
+	for (int i = 0; i < 100; i++)
+		this->brain->setIdeas(other.brain->getIdeas(i), i);
 }
 
 Cat& Cat::operator=(const Cat &other)
@@ -39,7 +40,6 @@ Cat& Cat::operator=(const Cat &other)
 	std::cout << RED << "Cat copy assignment called" << DEFAULT << std::endl;
 	if (this != &other)
 	{
-		std::cout << "meep\n";
 		this->type = other.type;
 		this->brain = other.brain;
 	}

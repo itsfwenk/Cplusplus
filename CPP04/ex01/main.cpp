@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:52:37 by fli               #+#    #+#             */
-/*   Updated: 2024/11/07 17:33:28 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/11 11:14:18 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@
 
 int main()
 {
-	Animal	*animalArray[10];
+	// Animal	*animalArray[10];
 
-	int i;
-	for(i = 0; i < 5; i++)
-		animalArray[i] = new Dog();
-	for (i = 5; i < 10; i++)
-		animalArray[i] = new Cat();
+	// int i;
+	// for(i = 0; i < 5; i++)
+	// 	animalArray[i] = new Dog();
+	// for (i = 5; i < 10; i++)
+	// 	animalArray[i] = new Cat();
 
-	for (i = 0; i < 10; i++)
-		delete animalArray[i];
+	// for (i = 0; i < 10; i++)
+	// 	delete animalArray[i];
 
 	// std::cout << "Lets copy a cat :" << std::endl;
 	// Cat *cat1 = new Cat();
@@ -37,6 +37,15 @@ int main()
 	// delete cat1;
 	// cat2->makeSound();
 
+	Dog dog1;
+	{
+		std::cout << "lol" << std::endl;
+		Dog dog2 = Dog(dog1);
+		std::cout << "lol2" << std::endl;
+		Dog dog3;
+		dog3 = dog1;
+	}
+	dog1.makeSound();
 }
 
 
