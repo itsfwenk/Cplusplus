@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mli <mli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:15:51 by fli               #+#    #+#             */
-/*   Updated: 2024/11/11 15:04:07 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/12 16:55:54 by mli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,17 @@ class Bureaucrat::GradeTooLowException : public std::exception
 
 Bureaucrat::Bureaucrat() : Name("defaultBureaucrat"), Grade(150)
 {
-	std::cout << "Bureaucrat default constructor called" << std::endl;
+	// std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Bureaucrat default destructor called" << std::endl;
+	// std::cout << "Bureaucrat default destructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &other) : Name(other.Name), Grade(other.Grade)
 {
-	std::cout << "Bureaucrat copy conSstructor called" << std::endl;
+	// std::cout << "Bureaucrat copy conSstructor called" << std::endl;
 }
 
 Bureaucrat const &Bureaucrat::operator=(Bureaucrat const &other)
@@ -91,4 +91,26 @@ std::ostream &operator<<(std::ostream& stream, const Bureaucrat& bureaucrat)
 {
 	stream << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
 	return (stream);
+}
+
+void Bureaucrat::signForm(Form form)
+{
+	// if (this->Grade <= form.getGradeToSign())
+	// {
+	// 	form.beSigned(*this);
+	// }
+	// else
+	// {
+	// 	std::cout << this->Name << " couldn't sign " << form.getName();
+	// 	std::cout << " because grade equal or higher than " << form.getGradeToSign();
+	// 	std::cout << " needed." << std::endl;
+	// }
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << this->Name << " couldn't sign form " << form.getName() << " because the bureaucrat grade is too low!" << std::endl;
+	}
 }

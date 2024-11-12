@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
+#    By: mli <mli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/07 10:44:02 by fli               #+#    #+#              #
-#    Updated: 2024/11/09 18:39:23 by fli              ###   ########.fr        #
+#    Updated: 2024/11/12 16:39:16 by mli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = c++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-C_FILE = main.cpp Bureaucrat.cpp
+C_FILE = main.cpp Bureaucrat.cpp Form.cpp
 
 INCLUDES = .
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mli <mli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:15:51 by fli               #+#    #+#             */
-/*   Updated: 2024/11/11 15:04:07 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/12 16:46:55 by mli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,17 @@ class Bureaucrat::GradeTooLowException : public std::exception
 
 Bureaucrat::Bureaucrat() : Name("defaultBureaucrat"), Grade(150)
 {
-	std::cout << "Bureaucrat default constructor called" << std::endl;
+	// std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Bureaucrat default destructor called" << std::endl;
+	// std::cout << "Bureaucrat default destructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &other) : Name(other.Name), Grade(other.Grade)
 {
-	std::cout << "Bureaucrat copy conSstructor called" << std::endl;
+	// std::cout << "Bureaucrat copy conSstructor called" << std::endl;
 }
 
 Bureaucrat const &Bureaucrat::operator=(Bureaucrat const &other)

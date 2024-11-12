@@ -6,7 +6,7 @@
 /*   By: mli <mli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:48:40 by mli               #+#    #+#             */
-/*   Updated: 2024/11/12 13:59:22 by mli              ###   ########.fr       */
+/*   Updated: 2024/11/12 16:42:24 by mli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
 	private:
 		std::string const	_name;
-		bool 				_signed;
-		const int			_gradeToSign;
-		const int			_gradeToExecute;
+		bool 							_signed;
+		const int					_gradeToSign;
+		const int					_gradeToExecute;
 
 	public:
 		Form();
@@ -35,9 +37,6 @@ class Form
 		int getGradeToSign() const;
 		int getGradeToExecute() const;
 		bool isSigned() const;
-
-		void setGradeToSign(int grade);
-		void setGradeToExecute(int grade);
 
 		void beSigned(Bureaucrat const &bureaucrat);
 

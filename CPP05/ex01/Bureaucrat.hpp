@@ -6,7 +6,7 @@
 /*   By: mli <mli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:16:03 by fli               #+#    #+#             */
-/*   Updated: 2024/11/12 14:00:19 by mli              ###   ########.fr       */
+/*   Updated: 2024/11/12 16:38:57 by mli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 
 # include "Form.hpp"
 
+class Form;
+
 class Bureaucrat
 {
 	private:
-		const std::string	_Name;
-		int					_Grade;
+		const std::string	Name;
+		int					Grade;
 	public:
 		Bureaucrat();
 		~Bureaucrat();
