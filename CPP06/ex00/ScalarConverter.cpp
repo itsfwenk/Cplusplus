@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mli <mli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 15:48:26 by mli               #+#    #+#             */
-/*   Updated: 2024/11/14 00:09:02 by mli              ###   ########.fr       */
+/*   Updated: 2024/11/14 10:54:49 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -253,6 +253,11 @@ void ScalarConverter::printNanInf(std::string value)
 		std::cout << "float: inff" << std::endl;
 		std::cout << "double: inf" << std::endl;
 	}
+	else if (value == "+inff" || value == "+inf")
+	{
+		std::cout << "float: +inff" << std::endl;
+		std::cout << "double: +inf" << std::endl;
+	}
 	else if (value == "-inff" || value == "-inf")
 	{
 		std::cout << "float: -inff" << std::endl;
@@ -267,10 +272,10 @@ void ScalarConverter::printNanInf(std::string value)
 
 void ScalarConverter::convert(std::string value)
 {
-	std::cout << ScalarConverter::isChar(value) << std::endl;
-	std::cout << ScalarConverter::isInt(value) << std::endl;
-	std::cout << ScalarConverter::isFloat(value) << std::endl;
-	std::cout << ScalarConverter::isDouble(value) << std::endl;
+	// std::cout << ScalarConverter::isChar(value) << std::endl;
+	// std::cout << ScalarConverter::isInt(value) << std::endl;
+	// std::cout << ScalarConverter::isFloat(value) << std::endl;
+	// std::cout << ScalarConverter::isDouble(value) << std::endl;
 	if (!ScalarConverter::isChar(value) && !ScalarConverter::isInt(value) && !ScalarConverter::isFloat(value) && !ScalarConverter::isDouble(value))
 		ScalarConverter::printNanInf(value);
 	else
