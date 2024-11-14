@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mli <mli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:15:51 by fli               #+#    #+#             */
-/*   Updated: 2024/11/13 15:05:58 by mli              ###   ########.fr       */
+/*   Updated: 2024/11/14 18:17:10 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int main()
 		AForm* rrf;
 		try
 		{
-			rrf = someRandomIntern.makeForm("robotomy request dqw", "Bender");
+			rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 			std::cout << *rrf;
 			bureaucrat1.signForm(*rrf);
 			bureaucrat1.executeForm(*rrf);
@@ -118,7 +118,6 @@ int main()
 		catch(const Intern::FormNotFoundException& e)
 		{
 			std::cerr << e.what() << std::endl;
-			delete rrf;
 		}
 	}
 }
