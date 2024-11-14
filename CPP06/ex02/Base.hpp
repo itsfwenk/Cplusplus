@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 12:04:03 by fli               #+#    #+#             */
-/*   Updated: 2024/11/14 18:05:02 by fli              ###   ########.fr       */
+/*   Created: 2024/11/14 15:11:45 by fli               #+#    #+#             */
+/*   Updated: 2024/11/14 18:13:09 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_HPP
-# define DATA_HPP
+#ifndef BASE_HPP
+# define BASE_HPP
 
-class Data
+#include <iostream>
+#include <cstdlib>  // For rand() and srand()
+#include <ctime>    // For time()
+
+class Base
 {
-	private:
 	public:
-		Data();
-		~Data();
-		Data(Data const &other);
-		Data &operator=(Data const &other);
+		virtual ~Base();
+		static Base * generate(void);
+		static void identify(Base* p);
+		static void identify(Base& p);
 };
 
 #endif

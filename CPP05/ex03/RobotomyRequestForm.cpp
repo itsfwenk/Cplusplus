@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mli <mli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:40:06 by mli               #+#    #+#             */
-/*   Updated: 2024/11/13 13:39:01 by mli              ###   ########.fr       */
+/*   Updated: 2024/11/14 15:44:24 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ AForm *RobotomyRequestForm::newForm(std::string target)
 void	RobotomyRequestForm::execute(const Bureaucrat & executor) const
 {
 	this->checkRequirements(executor);
+
+	std::srand(std::time(0));
 
 	std::cout << "*makes some drilling noise*" << std::endl;
 	if (std::rand() % 2 == 0)

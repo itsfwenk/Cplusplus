@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 12:04:03 by fli               #+#    #+#             */
-/*   Updated: 2024/11/14 18:05:02 by fli              ###   ########.fr       */
+/*   Created: 2024/11/14 18:11:55 by fli               #+#    #+#             */
+/*   Updated: 2024/11/14 18:13:11 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_HPP
-# define DATA_HPP
+#include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
-class Data
+int main()
 {
-	private:
-	public:
-		Data();
-		~Data();
-		Data(Data const &other);
-		Data &operator=(Data const &other);
-};
+	Base *rnd = Base::generate();
 
-#endif
+	Base::identify(rnd);
+	Base::identify(*rnd);
+
+	delete rnd;
+}

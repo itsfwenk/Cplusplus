@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 12:04:03 by fli               #+#    #+#             */
-/*   Updated: 2024/11/14 18:05:02 by fli              ###   ########.fr       */
+/*   Created: 2024/11/14 15:12:49 by fli               #+#    #+#             */
+/*   Updated: 2024/11/14 15:38:25 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_HPP
-# define DATA_HPP
+#ifndef C_HPP
+# define C_HPP
 
-class Data
+# include "Base.hpp"
+
+class C : public Base
 {
-	private:
 	public:
-		Data();
-		~Data();
-		Data(Data const &other);
-		Data &operator=(Data const &other);
+		C();
+		~C();
+		static Base *newC();
 };
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mli <mli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:48:40 by mli               #+#    #+#             */
-/*   Updated: 2024/11/13 13:52:00 by mli              ###   ########.fr       */
+/*   Updated: 2024/11/14 15:44:02 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "Bureaucrat.hpp"
 # include <cstdlib>
+#include <ctime>
 
 class Bureaucrat;
 
