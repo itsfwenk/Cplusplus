@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/07 10:44:02 by fli               #+#    #+#              #
-#    Updated: 2024/11/14 11:23:03 by fli              ###   ########.fr        #
+#    Updated: 2024/11/14 15:00:05 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = c++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -g
 
-C_FILE = main.cpp Serialize.cpp
+C_FILE = main.cpp Serialize.cpp Data.cpp
 
 INCLUDES = .
 

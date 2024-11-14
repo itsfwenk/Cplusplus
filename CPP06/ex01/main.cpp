@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialize.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 14:45:09 by fli               #+#    #+#             */
-/*   Updated: 2024/11/14 15:05:02 by fli              ###   ########.fr       */
+/*   Created: 2024/11/14 15:00:16 by fli               #+#    #+#             */
+/*   Updated: 2024/11/14 15:04:26 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "Serialize.hpp"
+#include "Data.hpp"
 
-Serializer::Serializer()
+int	main()
 {
-}
+	Data data;
+	uintptr_t serilized =  Serializer::serialize(&data);
+	Data *deserilized = Serializer::deserialize(serilized);
 
-Serializer::~Serializer()
-{
-}
-
-Serializer& Serializer::operator=(Serializer const &other)
-{
-	(void)other;
-	return *this;
-}
-
-uintptr_t Serializer::serialize(Data* ptr)
-{
-	uintptr_t serializedPointer = reinterpret_cast<uintptr_t>(ptr);
-	return (serializedPointer);
-}
-
-Data* Serializer::deserialize(uintptr_t raw)
-{
-	Data* deserializedPointer = reinterpret_cast<Data*>(raw);
-	return (deserializedPointer);
+	std::cout << "data adress : " << &data << std::endl;
+	std::cout << "serialize : " << serilized << std::endl;
+	std::cout << "deserialize : " << deserilized << std::endl;
 }
