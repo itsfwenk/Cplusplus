@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 15:48:26 by mli               #+#    #+#             */
-/*   Updated: 2024/11/14 10:54:49 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/14 11:17:30 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,11 +130,13 @@ bool	ScalarConverter::isDouble(std::string value)
 
 void	ScalarConverter::printChar(std::string value)
 {
-	int	val;
+	long long	val;
 
-	val = static_cast<int>(value.c_str()[0]);
+	val = static_cast<long long>(std::atoll(value.c_str()));
+	if (ScalarConverter::isChar(value) && !isdigit(value[0]))
+		val = static_cast<int>(value.c_str()[0]);
 	std::cout << "char: ";
-	if (ScalarConverter::isChar(value) && isprint(val))
+	if (isprint(val))
 		std::cout << '\'' << char(val) << '\'';
 	else if (ScalarConverter::isChar(value) && !isprint(val))
 		std::cout << "non displayable";
@@ -155,7 +157,7 @@ void	ScalarConverter::printInt(std::string value)
 		std::cout << static_cast<int>(value[0]);
 	else if (ScalarConverter::isInt(value))
 	{
-		val = static_cast<int>(std::atof(value.c_str()));
+		val = static_cast<long long>(std::atof(value.c_str()));
 		if (value.length() == 2 && value[0] == '-')
 			val = -1 * static_cast<int>(value[1]);
 		if (val > std::numeric_limits<int>::max() || val < std::numeric_limits<int>::min())
@@ -196,13 +198,17 @@ void ScalarConverter::printFloat(std::string value)
 		val = static_cast<double>(std::atof(value.c_str()));
 		if (value.length() == 2 && value[0] == '-')
 			val = -1 * static_cast<int>(value[1]);
-		std::cout << val << ".0f" << std::endl;
+		std::cout << val;
+		if (value.find("e") == std::string::npos)
+			std::cout  << ".0";
+		std::cout  << "f";
+		std::cout << std::endl;
 		return ;
 	}
 	else if (ScalarConverter::isFloat(value) || ScalarConverter::isDouble(value))
 		std::cout << static_cast<float>(std::atof(value.c_str()));
 	if (std::floor(static_cast<float>(std::atof(value.c_str()))) == static_cast<float>(std::atof(value.c_str()))
-		&& !std::isfinite(static_cast<float>(std::atof(value.c_str())))
+		&& std::isfinite(static_cast<float>(std::atof(value.c_str())))
 		&& value.find("e") == std::string::npos)
 		std::cout << ".0";
 	std::cout << "f" << std::endl;
@@ -227,13 +233,16 @@ void ScalarConverter::printDouble(std::string value)
 	{
 		if (value.length() == 2 && value[0] == '-')
 			val = -1 * static_cast<int>(value[1]);
-		std::cout << val << ".0f" << std::endl;
+		std::cout << val;
+		if (value.find("e") == std::string::npos)
+			std::cout  << ".0";
+		std::cout << std::endl;
 		return ;
 	}
 	else if (ScalarConverter::isFloat(value) || ScalarConverter::isDouble(value))
 		std::cout << val;
 	if (std::floor(val) == val
-		&& !std::isfinite(val)
+		&& std::isfinite(val)
 		&& value.find("e") == std::string::npos)
 		std::cout << ".0";
 	std::cout << std::endl;
