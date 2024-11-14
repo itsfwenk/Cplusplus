@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mli <mli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:40:25 by mli               #+#    #+#             */
-/*   Updated: 2024/11/12 22:19:20 by mli              ###   ########.fr       */
+/*   Updated: 2024/11/14 19:36:26 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Presidential Pardon Form", 72, 45, "defaultTarget")
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137, "defaultTarget")
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Presidential Pardon Form", 72, 45, target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137, target)
 {
 }
 

@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mli <mli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:17:52 by mli               #+#    #+#             */
-/*   Updated: 2024/11/13 13:38:31 by mli              ###   ########.fr       */
+/*   Updated: 2024/11/14 19:35:52 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("Presidential Pardon Form", 72, 45, "defaultTarget")
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5, "defaultTarget")
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Presidential Pardon Form", 72, 45, target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", 25, 5, target)
 {
 }
 
@@ -27,12 +27,6 @@ PresidentialPardonForm::~PresidentialPardonForm()
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &other)
 	: AForm(other)
 {
-}
-
-AForm *PresidentialPardonForm::newForm(std::string target)
-{
-	PresidentialPardonForm *form = new PresidentialPardonForm(target);
-	return form;
 }
 
 PresidentialPardonForm const &PresidentialPardonForm::operator=(PresidentialPardonForm const &other)

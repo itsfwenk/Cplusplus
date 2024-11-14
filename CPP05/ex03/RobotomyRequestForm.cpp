@@ -6,17 +6,17 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:40:06 by mli               #+#    #+#             */
-/*   Updated: 2024/11/14 15:44:24 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/14 19:35:20 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("Presidential Pardon Form", 72, 45, "defaultTarget")
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45, "defaultTarget")
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Presidential Pardon Form", 72, 45, target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45, target)
 {
 }
 
@@ -37,12 +37,6 @@ RobotomyRequestForm const &RobotomyRequestForm::operator=(RobotomyRequestForm co
 		this->target = other.target;
 	}
 	return *this;
-}
-
-AForm *RobotomyRequestForm::newForm(std::string target)
-{
-	RobotomyRequestForm *form = new RobotomyRequestForm(target);
-	return form;
 }
 
 void	RobotomyRequestForm::execute(const Bureaucrat & executor) const

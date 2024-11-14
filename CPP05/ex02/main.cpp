@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mli <mli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:15:51 by fli               #+#    #+#             */
-/*   Updated: 2024/11/12 21:58:41 by mli              ###   ########.fr       */
+/*   Updated: 2024/11/14 19:39:28 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int main()
 			Bureaucrat	max("Max", 10);
 
 			RobotomyRequestForm	form("non-robot");
-			// max.signForm(form);
+			max.signForm(form);
 
 			max.executeForm(form);
 		}
@@ -88,10 +88,10 @@ int main()
 	{
 		// try
 		{
-			Bureaucrat	mo("Mo", 10);
+			Bureaucrat	mo("Mo", 3);
 
 			PresidentialPardonForm form("me");
-			// mo.signForm(form);
+			mo.signForm(form);
 
 			mo.executeForm(form);
 		}
