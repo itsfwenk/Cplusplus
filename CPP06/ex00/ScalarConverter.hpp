@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mli <mli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 15:37:46 by mli               #+#    #+#             */
-/*   Updated: 2024/11/13 22:33:49 by mli              ###   ########.fr       */
+/*   Updated: 2024/11/14 11:46:09 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,11 @@
 # include <cmath>
 # include <cctype>
 
-enum Types
-{
-	CHAR,
-	INT,
-	FLOAT,
-	DOUBLE,
-};
-
 class ScalarConverter
 {
 	private:
-		ScalarConverter ();
-		ScalarConverter (const ScalarConverter &value);
+		ScalarConverter();
+		ScalarConverter(const ScalarConverter &value);
 		ScalarConverter & operator=(const ScalarConverter &value);
 
 
