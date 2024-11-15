@@ -6,14 +6,14 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 19:06:39 by fli               #+#    #+#             */
-/*   Updated: 2024/11/05 18:37:46 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/15 16:17:27 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap()
- : name("CharlesOignon"), ClapTrap("CharlesOignon_clap_name", FragTrap().getHitPoints(), ScavTrap().getEnergyPoints(), FragTrap().getAttackDamage())
+ : ClapTrap("CharlesOignon_clap_name", FragTrap().getHitPoints(), ScavTrap().getEnergyPoints(), FragTrap().getAttackDamage()), name("CharlesOignon")
 {
 	std::cout << BLUE << "DiamondTrap default contructor called." << DEFAULT << std::endl;
 	// ClapTrap::Name = this->name + "_clap_name";
@@ -52,7 +52,7 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap &other)
 }
 
 DiamondTrap::DiamondTrap(std::string name)
- : name(name), ClapTrap(name + "_clap_name", FragTrap().getHitPoints(), ScavTrap().getEnergyPoints(), FragTrap().getAttackDamage())
+ : ClapTrap(name + "_clap_name", FragTrap().getHitPoints(), ScavTrap().getEnergyPoints(), FragTrap().getAttackDamage()),name(name)
 {
 	std::cout << BLUE << "DiamondTrap name contructor called." << DEFAULT << std::endl;
 	// ClapTrap::Name = this->name + "_clap_name";
