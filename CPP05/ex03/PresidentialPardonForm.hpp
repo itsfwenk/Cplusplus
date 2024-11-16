@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mli <mli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:48:40 by mli               #+#    #+#             */
-/*   Updated: 2024/11/13 13:51:53 by mli              ###   ########.fr       */
+/*   Updated: 2024/11/16 13:48:23 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class PresidentialPardonForm : public AForm
 
 		static AForm *newForm(std::string target);
 
-		PresidentialPardonForm(const std::string name, int gradeToSign, int gradeToExecute);
 		PresidentialPardonForm(std::string target);
 		void	execute(const Bureaucrat & executor) const;
 };

@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:48:40 by mli               #+#    #+#             */
-/*   Updated: 2024/11/14 15:44:02 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/16 13:48:41 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ class RobotomyRequestForm : public AForm
 
 		static AForm *newForm(std::string target);
 
-		RobotomyRequestForm(const std::string name, int gradeToSign, int gradeToExecute);
 		RobotomyRequestForm(std::string target);
 		void	execute(const Bureaucrat & executor) const;
 };

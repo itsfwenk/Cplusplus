@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:40:25 by mli               #+#    #+#             */
-/*   Updated: 2024/11/14 19:36:26 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/16 13:49:03 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,10 @@ void	ShrubberyCreationForm::execute(const Bureaucrat & executor) const
 	shrubberyFile << "                                      {{}" << std::endl;
 	shrubberyFile << "                                , -=-~{ .-^- _" << std::endl;
 	shrubberyFile.close();
+}
+
+AForm *ShrubberyCreationForm::newForm(std::string target)
+{
+	ShrubberyCreationForm *form = new ShrubberyCreationForm(target);
+	return form;
 }

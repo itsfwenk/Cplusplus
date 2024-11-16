@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:40:06 by mli               #+#    #+#             */
-/*   Updated: 2024/11/14 19:35:20 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/16 13:48:36 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,10 @@ void	RobotomyRequestForm::execute(const Bureaucrat & executor) const
 		std::cout << this->getTarget() << " has been robotomized successfully." << std::endl;
 	else
 		std::cout << this->getTarget() << " has not been robotomized." << std::endl;
+}
+
+AForm *RobotomyRequestForm::newForm(std::string target)
+{
+	RobotomyRequestForm *form = new RobotomyRequestForm(target);
+	return form;
 }

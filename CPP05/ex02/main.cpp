@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:15:51 by fli               #+#    #+#             */
-/*   Updated: 2024/11/14 19:39:28 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/16 13:43:42 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,24 +53,24 @@ int main()
 	// }
 
 	{
-		// try
+		try
 		{
 			Bureaucrat	mike("Mike", 10);
 
-			ShrubberyCreationForm	form("forest");
+			ShrubberyCreationForm	form("tree");
 			mike.executeForm(form);
 			mike.signForm(form);
 
 			mike.executeForm(form);
 		}
-		// catch(const std::exception& e)
-		// {
-		// 	std::cerr << e.what() << std::endl;
-		// }
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 	}
 
 	{
-		// try
+		try
 		{
 			Bureaucrat	max("Max", 10);
 
@@ -79,14 +79,14 @@ int main()
 
 			max.executeForm(form);
 		}
-		// catch(const std::exception& e)
-		// {
-		// 	std::cerr << e.what() << std::endl;
-		// }
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 	}
 
 	{
-		// try
+		try
 		{
 			Bureaucrat	mo("Mo", 3);
 
@@ -95,9 +95,9 @@ int main()
 
 			mo.executeForm(form);
 		}
-		// catch(const std::exception& e)
-		// {
-		// 	std::cerr << e.what() << std::endl;
-		// }
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 	}
 }

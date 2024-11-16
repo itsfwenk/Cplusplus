@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:17:52 by mli               #+#    #+#             */
-/*   Updated: 2024/11/14 19:35:52 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/16 13:47:53 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,10 @@ void	PresidentialPardonForm::execute(const Bureaucrat & executor) const
 	this->checkRequirements(executor);
 
 	std::cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+}
+
+AForm *PresidentialPardonForm::newForm(std::string target)
+{
+	PresidentialPardonForm *form = new PresidentialPardonForm(target);
+	return form;
 }
