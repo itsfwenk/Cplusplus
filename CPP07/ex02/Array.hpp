@@ -6,7 +6,7 @@
 /*   By: mli <mli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 17:11:17 by mli               #+#    #+#             */
-/*   Updated: 2024/11/17 19:02:21 by mli              ###   ########.fr       */
+/*   Updated: 2024/11/17 19:12:32 by mli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <cstddef>
 # include <exception>
+# include <iostream>
 
 template <typename T>
 class Array
