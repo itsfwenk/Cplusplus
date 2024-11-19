@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 15:48:26 by mli               #+#    #+#             */
-/*   Updated: 2024/11/14 11:17:30 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/19 17:01:48 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,9 @@ void	ScalarConverter::printChar(std::string value)
 	if (ScalarConverter::isChar(value) && !isdigit(value[0]))
 		val = static_cast<int>(value.c_str()[0]);
 	std::cout << "char: ";
-	if (isprint(val))
+	if (val > std::numeric_limits<char>::max() || val < std::numeric_limits<char>::min())
+		std::cout << "out of range";
+	else if (isprint(val))
 		std::cout << '\'' << char(val) << '\'';
 	else if (ScalarConverter::isChar(value) && !isprint(val))
 		std::cout << "non displayable";
@@ -158,8 +160,8 @@ void	ScalarConverter::printInt(std::string value)
 	else if (ScalarConverter::isInt(value))
 	{
 		val = static_cast<long long>(std::atof(value.c_str()));
-		if (value.length() == 2 && value[0] == '-')
-			val = -1 * static_cast<int>(value[1]);
+		// if (value.length() == 2 && value[0] == '-')
+		// 	val = -1 * static_cast<int>(value[1]);
 		if (val > std::numeric_limits<int>::max() || val < std::numeric_limits<int>::min())
 			std::cout << "out of range";
 		else
@@ -196,8 +198,8 @@ void ScalarConverter::printFloat(std::string value)
 	else if (ScalarConverter::isInt(value))
 	{
 		val = static_cast<double>(std::atof(value.c_str()));
-		if (value.length() == 2 && value[0] == '-')
-			val = -1 * static_cast<int>(value[1]);
+		// if (value.length() == 2 && value[0] == '-')
+		// 	val = -1 * static_cast<int>(value[1]);
 		std::cout << val;
 		if (value.find("e") == std::string::npos)
 			std::cout  << ".0";
@@ -231,8 +233,8 @@ void ScalarConverter::printDouble(std::string value)
 	}
 	else if (ScalarConverter::isInt(value))
 	{
-		if (value.length() == 2 && value[0] == '-')
-			val = -1 * static_cast<int>(value[1]);
+		// if (value.length() == 2 && value[0] == '-')
+		// 	val = -1 * static_cast<int>(value[1]);
 		std::cout << val;
 		if (value.find("e") == std::string::npos)
 			std::cout  << ".0";
