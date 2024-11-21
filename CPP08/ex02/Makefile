@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/07 10:44:02 by fli               #+#    #+#              #
-#    Updated: 2024/11/20 17:54:42 by fli              ###   ########.fr        #
+#    Updated: 2024/11/21 10:58:56 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = c++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-C_FILE = main.cpp MutantStack.cpp
+C_FILE = main.cpp
 
 INCLUDES = .
 

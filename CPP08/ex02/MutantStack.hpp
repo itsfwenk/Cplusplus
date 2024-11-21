@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:55:09 by fli               #+#    #+#             */
-/*   Updated: 2024/11/20 19:58:00 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/21 11:00:08 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ class MutantStack : public std::stack<T, std::deque<T> >
 	public:
 		MutantStack() : std::stack<T>() {};
 		~MutantStack() {};
-		MutantStack (const MutantStack &other) :
+		MutantStack (const MutantStack &other): std::stack<T>()
 		{
 			this->c = other.c;
 		};
-		MutantStack & operator=(const MutantStack &value)
+		MutantStack & operator=(const MutantStack &other)
 		{
 			if (this != &other)
 			{
@@ -39,10 +39,26 @@ class MutantStack : public std::stack<T, std::deque<T> >
 
 		typedef typename std::deque<T>::iterator		iterator;
 		typedef typename std::deque<T>::const_iterator	const_iterator;
-		const const_iterator begin() const;
-		const const_iterator end() const;
-		iterator begin();
-		iterator end();
+
+		const const_iterator begin() const
+		{
+			return this->c.begin();
+		};
+
+		const const_iterator end() const
+		{
+			return this->c.end();
+		};
+
+		iterator begin()
+		{
+			return this->c.begin();
+		};
+
+		iterator end()
+		{
+			return this->c.end();
+		};
 };
 
 #endif
