@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:55:09 by fli               #+#    #+#             */
-/*   Updated: 2024/11/21 11:00:08 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/21 11:10:07 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <deque>
 
 template <typename T>
-class MutantStack : public std::stack<T, std::deque<T> >
+class MutantStack : public std::stack<T>
 {
 	public:
 		MutantStack() : std::stack<T>() {};
