@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 14:04:49 by fli               #+#    #+#             */
-/*   Updated: 2024/11/21 18:25:33 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/22 19:13:00 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,33 @@
 # include <cstdlib>
 # include <limits>
 # include <exception>
+# include <cmath>
+# include <iomanip>
+# include <cctype>
 
 class BitcoinExchange
 {
 	private:
-	BitcoinExchange();
-	std::map<std::string, double, std::greater<std::string>> _database;
+	std::map<std::string, double> _database;
 
 	public:
+	BitcoinExchange();
 	~BitcoinExchange();
 	BitcoinExchange(const BitcoinExchange &other);
 	BitcoinExchange& operator=(const BitcoinExchange &other);
 
 	BitcoinExchange(std::string filename);
 
-	bool	checkline(std::string line);
+	void checkline(std::string line);
+	// static void	checkinput(std::map<std::string, double>::const_iterator it);
+	void checkdate(std::string date);
+	void checkvalue(double value);
+	void printresult(std::string filename);
 
-	class InvalidFile;
+	class CannotOpenFile;
+	class BadInput;
+	class NotPositiveNumber;
+	class TooLargeNumber;
 };
 
 #endif
