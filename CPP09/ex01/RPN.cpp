@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 14:50:01 by mli               #+#    #+#             */
-/*   Updated: 2024/11/24 16:05:03 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/24 16:45:58 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,17 @@ void RPN::checkinput(std::string input)
 	size_t i = 0;
 	while (i < input.length() && input[i] == ' ')
 		i++;
-	if (!isdigit(input[i]))
+	if (!isdigit(input[i]) && input[i] != '-' && input[i] != '+')
 		throw InvalidRPN();
 	for (size_t j = i; j < input.length(); j++)
 	{
-		if (!between && !RPN::isoperator(input[j]) && !isdigit(input[j]))
+		if (!between && (input[j] == '-' || input[j] == '+')
+			&& (j + 1 < input.length() && isdigit(input[j + 1])))
+		{
+			while (j < input.length() && isdigit(input[j + 1]))
+				j++;
+		}
+		else if (!between && !RPN::isoperator(input[j]) && !isdigit(input[j]))
 			throw InvalidRPN();
 		else if (between && input[j] != ' ')
 			throw InvalidRPN();
@@ -122,13 +128,18 @@ void RPN::calculate(std::string input)
 
 	long long value;
 	char c;
+	std::string substr;
 	while (it != input.end())
 	{
-		c = *it;
-		if (isdigit(c))
+		substr = std::string(it, input.end());
+		c = substr[0];
+		if (isdigit(c) || ((c == '-' || c == '+') && it + 1 != input.end() && isdigit(it[1])))
 		{
-			value = std::atoll(&c);
+			value = std::atoll(substr.c_str());
 			this->_stack.push(value);
+			while (it != input.end() && *it != ' ')
+				it++;
+			continue;
 		}
 		else if (RPN::isoperator(c))
 		{
