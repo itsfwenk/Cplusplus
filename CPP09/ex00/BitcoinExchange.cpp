@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mli <mli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 14:04:37 by fli               #+#    #+#             */
-/*   Updated: 2024/11/22 19:41:28 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/24 13:58:48 by mli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,24 +80,24 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &other)
 
 void	BitcoinExchange::checkline(std::string line)
 {
-	int i = 0;
+	size_t i = 0;
 
 	while (i < 10)
 	{
-		if ((i == 5 || i == 7) && line[i] != '-')
+		if ((i == 4 || i == 7) && line[i] != '-')
 			throw BadInput();
-		else if (!isdigit(line[i]))
+		else if ((i != 4 && i != 7) && !isdigit(line[i]))
 			throw BadInput();
 		i++;
 	}
-	if (line[i++] != ' ' || line[i++] != '|' || line[i++] != ' ')
+	if (i + 3 < line.length() && (line[i++] != ' ' || line[i++] != '|' || line[i++] != ' '))
 		throw BadInput();
-	int first = i;
-	while (line[i])
+	size_t first = i;
+	while (i < line.length())
 	{
 		if (i == first && !isdigit(line[i]) && line[i] != '-' && line[i] != '+')
 			throw BadInput();
-		if (!isdigit(line[i]))
+		else if (i != first && !isdigit(line[i]) && line[i] != '.')
 			throw BadInput();
 		i++;
 	}
@@ -132,7 +132,9 @@ void	BitcoinExchange::checkline(std::string line)
 
 void	BitcoinExchange::checkdate(std::string date)
 {
-	if (!strptime(date.c_str(), "%Y-%m-%d", NULL))
+	struct tm time;
+
+	if (!strptime(date.c_str(), "%Y-%m-%d", &time))
 		throw BadInput();
 	// if (it->second < 0)
 	// 	throw NotPositiveNumber();
@@ -148,39 +150,65 @@ void	BitcoinExchange::checkvalue(double value)
 		throw TooLargeNumber();
 }
 
+double BitcoinExchange::getvalue(std::string date)
+{
+	std::map<std::string, double>::iterator rate;
+
+	rate = this->_database.find(date);
+	if (rate == this->_database.end())
+	{
+		rate = this->_database.lower_bound(date);
+		if (rate == this->_database.end())
+			return (--rate)->second;
+		if (rate == this->_database.begin())
+			return rate->second;
+		return (--rate)->second;
+	}
+	return rate->second;
+}
+
 void BitcoinExchange::printresult(std::string filename)
 {
-	std::ifstream inputFile(filename);
+	std::ifstream inputFile(filename.c_str());
 	if (!inputFile.is_open())
 		throw CannotOpenFile();
 
 	std::string line;
-	while (std::getline(inputFile, line))
+	std::string date;
+	while (std::getline(inputFile, line, '\n'))
 	{
+		if (line == "date | value")
+			continue;
 		try
 		{
 			BitcoinExchange::checkline(line);
+			date = line.substr(0, 10);
+			BitcoinExchange::checkdate(date);
+
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << " => " << line;
+			std::cerr << e.what() << " => " << line << std::endl;
 			continue;
 		}
+		double value;
 		try
 		{
-			BitcoinExchange::checkdate(line.substr(0, 10));
 			size_t i = line.find('|');
 			if (i == std::string::npos)
 				throw BadInput();
 			i += 2;
 			std::string stringValue = line.substr(i);
-			double value = std::atof(stringValue.c_str());
+			value = std::atof(stringValue.c_str());
 			BitcoinExchange::checkvalue(value);
 		}
 		catch(const std::exception& e)
 		{
 			std::cerr << e.what() << std::endl;
+			continue;
 		}
-
+		std::cout << date << " => " << value;
+		std::cout << " = " << BitcoinExchange::getvalue(date) * value;
+		std::cout << std::endl;
 	}
 }
