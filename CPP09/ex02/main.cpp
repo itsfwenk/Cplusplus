@@ -13,11 +13,113 @@
 
 #include "PmergeMe.hpp"
 
+// int main(int ac, char **av)
+// {
+// 	(void)ac;
+
+// 	PmergeMe test;
+// 	std::cout << "SORT WITH VECTOR" << std::endl;
+// 	try
+// 	{
+// 		std::clock_t start_time = std::clock();
+// 		PmergeMe::checkInput(av);
+// 		int i = 1;
+// 		while (av[i])
+// 		{
+// 			test.addInput(std::atoll(av[i]));
+// 			i++;
+// 		}
+// 		std::cout << "Before:    ";
+// 		for (size_t i = 0; i < test.getInputSize(); i++)
+// 		{
+// 			std::cout << test.getInput(i) << " ";
+// 			if (i > 4)
+// 			{
+// 				std::cout << "[...]";
+// 				break;
+// 			}
+// 		}
+// 		std::cout << std::endl;
+// 		test.addPairs();
+// 		test.sortInput();
+// 		std::clock_t end_time = std::clock();
+// 		std::cout << "After:     ";
+// 		for (size_t i = 0; i < test.getInputSize(); i++)
+// 		{
+// 			std::cout << test.getSorted(i) << " ";
+// 			if (i > 4)
+// 			{
+// 				std::cout << "[...]";
+// 				break;
+// 			}
+// 		}
+// 		std::cout << std::endl;
+// 		std::cout << "Time to process a range of " << test.getInputSize();
+// 		std::cout << " elements with std::vector : ";
+// 		std::cout << double(end_time - start_time) / CLOCKS_PER_SEC * 1000000;
+// 		std::cout << " us" << std::endl;
+// 	}
+// 	catch (const std::exception& e)
+// 	{
+// 		std::cerr << e.what() << '\n';
+// 	}
+
+
+// 	std::cout << std::endl << "SORT WITH DEQUE" << std::endl;
+
+// 	try
+// 	{
+// 		std::clock_t start_time = std::clock();
+// 		PmergeMe::checkInput(av);
+// 		int i = 1;
+// 		while (av[i])
+// 		{
+// 			test.dAddInput(std::atoll(av[i]));
+// 			i++;
+// 		}
+// 		std::cout << "Before:    ";
+// 		for (size_t i = 0; i < test.dGetInputSize(); i++)
+// 		{
+// 			std::cout << test.dGetInput(i) << " ";
+// 			if (i > 4)
+// 			{
+// 				std::cout << "[...]";
+// 				break;
+// 			}
+// 		}
+// 		std::cout << std::endl;
+// 		test.dAddPairs();
+// 		test.dSortInput();
+// 		std::clock_t end_time = std::clock();
+// 		std::cout << "After:     ";
+// 		for (size_t i = 0; i < test.dGetInputSize(); i++)
+// 		{
+// 			std::cout << test.dGetSorted(i) << " ";
+// 			if (i > 4)
+// 			{
+// 				std::cout << "[...]";
+// 				break;
+// 			}
+// 		}
+// 		std::cout << std::endl;
+// 		std::cout << "Time to process a range of " << test.dGetInputSize();
+// 		std::cout << " elements with std::deque : ";
+// 		std::cout << double(end_time - start_time) / CLOCKS_PER_SEC * 1000000;
+// 		std::cout << " us" << std::endl;
+// 	}
+// 	catch (const std::exception& e)
+// 	{
+// 		std::cerr << e.what() << '\n';
+// 	}
+// }
+
 int main(int ac, char **av)
 {
 	(void)ac;
 
 	PmergeMe test;
+	std::vector<int> sorted;
+	std::vector<int> input;
 	std::cout << "SORT WITH VECTOR" << std::endl;
 	try
 	{
@@ -26,84 +128,36 @@ int main(int ac, char **av)
 		int i = 1;
 		while (av[i])
 		{
-			test.addInput(std::atoll(av[i]));
+			test.addInput(std::atoll(av[i]), &input);
 			i++;
 		}
 		std::cout << "Before:    ";
-		for (size_t i = 0; i < test.getInputSize(); i++)
+		for (size_t i = 0; i < input.size(); i++)
 		{
-			std::cout << test.getInput(i) << " ";
-			if (i > 4)
-			{
-				std::cout << "[...]";
-				break;
-			}
+			std::cout << input[i] << " ";
+			// if (i > 4)
+			// {
+			// 	std::cout << "[...]";
+			// 	break;
+			// }
 		}
 		std::cout << std::endl;
-		test.addPairs();
-		test.sortInput();
+
+		sortWithVector(&input, &sorted);
 		std::clock_t end_time = std::clock();
 		std::cout << "After:     ";
-		for (size_t i = 0; i < test.getInputSize(); i++)
+		for (size_t i = 0; i < input.size(); i++)
 		{
-			std::cout << test.getSorted(i) << " ";
-			if (i > 4)
-			{
-				std::cout << "[...]";
-				break;
-			}
+			std::cout << sorted[i] << " ";
+			// if (i > 4)
+			// {
+			// 	std::cout << "[...]";
+			// 	break;
+			// }
 		}
 		std::cout << std::endl;
-		std::cout << "Time to process a range of " << test.getInputSize();
+		std::cout << "Time to process a range of " << input.size();
 		std::cout << " elements with std::vector : ";
-		std::cout << double(end_time - start_time) / CLOCKS_PER_SEC * 1000000;
-		std::cout << " us" << std::endl;
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-
-
-	std::cout << std::endl << "SORT WITH DEQUE" << std::endl;
-
-	try
-	{
-		std::clock_t start_time = std::clock();
-		PmergeMe::checkInput(av);
-		int i = 1;
-		while (av[i])
-		{
-			test.dAddInput(std::atoll(av[i]));
-			i++;
-		}
-		std::cout << "Before:    ";
-		for (size_t i = 0; i < test.dGetInputSize(); i++)
-		{
-			std::cout << test.dGetInput(i) << " ";
-			if (i > 4)
-			{
-				std::cout << "[...]";
-				break;
-			}
-		}
-		std::cout << std::endl;
-		test.dAddPairs();
-		test.dSortInput();
-		std::clock_t end_time = std::clock();
-		std::cout << "After:     ";
-		for (size_t i = 0; i < test.dGetInputSize(); i++)
-		{
-			std::cout << test.dGetSorted(i) << " ";
-			if (i > 4)
-			{
-				std::cout << "[...]";
-				break;
-			}
-		}
-		std::cout << std::endl;
-		std::cout << "Time to process a range of " << test.dGetInputSize();
-		std::cout << " elements with std::deque : ";
 		std::cout << double(end_time - start_time) / CLOCKS_PER_SEC * 1000000;
 		std::cout << " us" << std::endl;
 	}
