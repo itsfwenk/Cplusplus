@@ -6,11 +6,19 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 16:52:11 by fli               #+#    #+#             */
-/*   Updated: 2024/11/26 01:01:22 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/26 17:58:25 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+void printAllPairs(std::vector <std::pair<int, int> > pairs)
+{
+	for (std::vector <std::pair<int, int> >::iterator it = pairs.begin(); it != pairs.end(); it++)
+	{
+		std::cout << it->first << " " << it->second << std::endl;
+	}
+}
 
 PmergeMe::PmergeMe()
 {
@@ -277,12 +285,15 @@ void PmergeMe::checkInput(char **av)
 // 		PmergeMe::dInsertSort(this->_input[this->_input.size() - 1]);
 // }
 
-std::vector<std::pair<int, int> >::iterator PmergeMe::getPair(int toFind, std::vector<std::pair<int, int> > pairs)
+std::vector<std::pair<int, int> >::iterator PmergeMe::getPair(int toFind, std::vector<std::pair<int, int> > *pairs)
  {
-	for (std::vector<std::pair<int, int> >::iterator it = pairs.begin(); it != pairs.end(); it++)
+	for (std::vector<std::pair<int, int> >::iterator it = pairs->begin(); it != pairs->end(); it++)
 	{
 		if (it->first == toFind || it->second == toFind)
+		{
+			std::cout << "returned pair is " << it->first << " " << it->second << std::endl;
 			return it;
+		}
 	}
 	throw OutOfRange();
  }
@@ -301,8 +312,8 @@ void PmergeMe::makePairs(std::vector<int> toSort, std::vector<std::pair<int, int
 		pairs->push_back(std::make_pair(a, b));
 		j++;
 	}
-	if (toSort.size() % 2 == 1)
-		pairs->push_back(std::make_pair(toSort[toSort.size() - 1], toSort[toSort.size() - 1]));
+	// if (toSort.size() % 2 == 1)
+	// 	pairs->push_back(std::make_pair(toSort[toSort.size() - 1], toSort[toSort.size() - 1]));
 }
 
 std::vector<int> PmergeMe::makeNewList(std::vector<std::pair<int, int> > pairs)
@@ -325,10 +336,10 @@ void PmergeMe::sortPairs(std::vector<std::pair<int, int> > *pairs)
 	}
 }
 
-std::vector<int>::iterator PmergeMe::leftBetween(std::vector<std::pair<int, int> > pairs, std::vector<int> sorted, int start, int end)
+std::vector<int>::iterator PmergeMe::leftBetween(std::vector<std::pair<int, int> > *pairs, std::vector<int> *sorted, int start, int end)
 {
-	std::vector<int>::iterator it = std::find(sorted.begin(), sorted.end(), start);
-	std::vector<int>::iterator ite = std::find(sorted.begin(), sorted.end(), end);
+	std::vector<int>::iterator it = std::find(sorted->begin(), sorted->end(), start);
+	std::vector<int>::iterator ite = std::find(sorted->begin(), sorted->end(), end);
 
 	int i = 0;
 	std::vector<std::pair<int, int> >::iterator itPair;
@@ -346,15 +357,29 @@ std::vector<int>::iterator PmergeMe::leftBetween(std::vector<std::pair<int, int>
 			continue;
 		}
 	}
-	return sorted.end();
+	return sorted->end();
 }
 
-void PmergeMe::jacobsthalInsert(std::vector<std::pair<int, int> > pairs, std::vector<int> *sorted)
+void PmergeMe::jacobsthalInsert(std::vector<std::pair<int, int> > *pairs, std::vector<int> *sorted)
 {
+	size_t pairvecsize = pairs->size();
+	std::cout << "IN JACOB INSERT" << std::endl;
+	std::cout << "in sorted : ";
+	for (std::vector<int>::iterator it = sorted->begin(); it != sorted->end(); it++)
+	{
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+	std::cout << "pairs : ";
+	printAllPairs(*pairs);
+	std::cout << "***************************" << std::endl;
 	std::vector <std::pair<int, int> >::iterator pairToAdd;
 	try
 	{
-		pairToAdd = PmergeMe::getPair((*sorted)[0], pairs);
+		// std::cout << (*sorted)[0] << std::endl;
+		pairToAdd = PmergeMe::getPair(sorted->front(), pairs);
+		std::cout << "first pair : ";
+		std::cout << " " << pairToAdd->first << " " << pairToAdd->second << std::endl;
 	}
 	catch (const std::exception& e)
 	{
@@ -362,13 +387,17 @@ void PmergeMe::jacobsthalInsert(std::vector<std::pair<int, int> > pairs, std::ve
 		exit(EXIT_FAILURE);
 	}
 	sorted->insert(sorted->begin(), pairToAdd->first);
-	pairs.erase(pairToAdd);
+	pairs->erase(pairToAdd);
 	int i = 3;
-	while (pairs.size() != 0)
+	while (pairs->size() != 0)
 	{
+		// std::cout << "in while (pairs->size() != 0) loop" << std::endl;
 		try
 		{
-			pairToAdd = PmergeMe::getPair((*sorted)[PmergeMe::getJacobsthal(i)], pairs);
+			size_t jac = PmergeMe::getJacobsthal(i);
+			if (jac >= pairvecsize)
+				break;
+			pairToAdd = PmergeMe::getPair((*sorted)[jac], pairs);
 		}
 		catch (const std::exception& e)
 		{
@@ -378,8 +407,8 @@ void PmergeMe::jacobsthalInsert(std::vector<std::pair<int, int> > pairs, std::ve
 		int intToInsert = pairToAdd->first;
 		std::vector<int>::iterator it = std::upper_bound(sorted->begin(), sorted->end(), intToInsert);
 		sorted->insert(it, intToInsert);
-		pairs.erase(pairToAdd);
-		std::vector<int>::iterator toInsert = PmergeMe::leftBetween(pairs, *sorted, *sorted->begin(), intToInsert);
+		pairs->erase(pairToAdd);
+		std::vector<int>::iterator toInsert = PmergeMe::leftBetween(pairs, sorted, *sorted->begin(), intToInsert);
 		if (toInsert != sorted->end())
 		{
 			while (*toInsert != intToInsert)
@@ -387,7 +416,7 @@ void PmergeMe::jacobsthalInsert(std::vector<std::pair<int, int> > pairs, std::ve
 				pairToAdd = PmergeMe::getPair(*toInsert, pairs);
 				it = std::upper_bound(sorted->begin(), sorted->end(), pairToAdd->first);
 				sorted->insert(it, pairToAdd->first);
-				pairs.erase(pairToAdd);
+				pairs->erase(pairToAdd);
 				toInsert++;
 			}
 		}
@@ -399,29 +428,53 @@ static int iteration = 0;
 
 void sortWithVector(std::vector<int> *toSort, std::vector<int> *sorted)
 {
+	if (toSort->size() <= 1)
+		return;
 	std::cout << "iteration : " << iteration << std::endl;
 	iteration++;
 	// std::cout << toSort->size() << std::endl;
+	std::cout << "-------" <<std::endl;
+	for (std::vector<int>::iterator it = toSort->begin(); it != toSort->end(); it++)
+	{
+		std::cout << *it << " ";
+
+	}
+	std::cout << std::endl;
+	std::cout << "-------" <<std::endl;
 	if (toSort->size() < 2)
 		return ;
-	else if (toSort->size() == 2)
-	{
-		sorted->push_back(std::min((*toSort)[0], (*toSort)[1]));
-		sorted->push_back(std::max((*toSort)[0], (*toSort)[1]));
-		return;
-	}
+	// else if (toSort->size() == 2)
+	// {
+	// 	sorted->push_back(std::min((*toSort)[0], (*toSort)[1]));
+	// 	sorted->push_back(std::max((*toSort)[0], (*toSort)[1]));
+	// 	return;
+	// }
 	std::vector<std::pair<int, int> > pairs;
 	PmergeMe::makePairs(*toSort, &pairs);
 	PmergeMe::sortPairs(&pairs);
-
+	if (pairs.size() == 1)
+	{
+		sorted->push_back(pairs[0].first);
+		sorted->push_back(pairs[0].second);
+		if (toSort->size() == 3)
+		{
+			std::vector<int>::iterator it = std::upper_bound(sorted->begin(), sorted->end(), toSort->back());
+			sorted->insert(it, toSort->back());
+		}
+		return;
+	}
 	// std::cout << "pairs.size() = " << pairs.size() << std::endl;
 	for (size_t i = 0; i < pairs.size(); i++)
 	{
 		std::cout << pairs[i].first << " " << pairs[i].second << std::endl;
 	}
-
-
 	std::vector<int> newList = PmergeMe::makeNewList(pairs);
 	sortWithVector(&newList, sorted);
-	PmergeMe::jacobsthalInsert(pairs, sorted);
+	PmergeMe::jacobsthalInsert(&pairs, sorted);
+	if (toSort->size() % 2 == 1)
+	{
+		int unpaired = toSort->back();
+		std::vector<int>::iterator it = std::upper_bound(sorted->begin(), sorted->end(), unpaired);
+		sorted->insert(it, unpaired);
+	}
 }
