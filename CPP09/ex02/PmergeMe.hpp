@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 16:52:12 by fli               #+#    #+#             */
-/*   Updated: 2024/11/27 19:49:05 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/27 21:17:25 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,18 @@
 # include <ctime>
 
 void sortWithVector(std::vector<int> *toSort, std::vector<int> *sorted);
+void sortWithDeque(std::deque<int> *toSort, std::deque<int> *sorted);
 class PmergeMe
 {
 	private:
-	std::vector<int> _input;
-	std::vector<int> _sorted;
-	std::vector<std::pair<int, int> > _pairs;
-
-	std::deque<int> _dInput;
-	std::deque<int> _dSorted;
-	std::deque<std::pair<int, int> > _dPairs;
-	// PmergeMe();
-
-	public:
-	// PmergeMe(std::vector<int> _input);
 	PmergeMe();
-	~PmergeMe();
 	PmergeMe(const PmergeMe &other);
 	PmergeMe& operator=(const PmergeMe &other);
+	public:
+	~PmergeMe();
 
-	void addInput(long long n, std::vector<int> *input);
+	static void addInput(long long n, std::vector<int> *input);
+	static void addInput(long long n, std::deque<int> *input);
 	// std::pair<int, int> getPair(size_t index);
 	// size_t getInputSize();
 	// int getInput(size_t index);
@@ -57,12 +49,11 @@ class PmergeMe
 	static int getJacobsthal(int n);
 	static bool isAllDigits(std::string str);
 	static void checkInput(char **av);
+
 	static std::vector<std::pair<int, int> >::iterator getPair(int toFind, std::vector<std::pair<int, int> > *pairs);
 	static void makePairs(std::vector<int> toSort, std::vector<std::pair<int, int> > *pairs);
 	static std::vector<int> makeNewList(std::vector<std::pair<int, int> > pairs);
 	static void sortPairs(std::vector<std::pair<int, int> > *pairs);
-	// static bool pairAdded(int n);
-	// static std::vector<int>::iterator leftBetween(std::vector<std::pair<int, int> > *pairs, std::vector<int> *sorted, int start, int end);
 	static std::vector<int>::iterator insertInSorted(std::vector<int> *sorted, int intToInsert, std::vector<std::pair<int, int> > *pairs, std::vector<std::pair<int, int> >::iterator pairToAdd);
 	static void addRemainingPairs(std::vector<int> *sorted, std::vector<std::pair<int, int> > *pairs);
 	static void jacobsthalInsert(std::vector<std::pair<int, int> > *pairs, std::vector<int> *sorted);
@@ -76,6 +67,14 @@ class PmergeMe
 	// void dAddPairs();
 	// void dInsertSort(int a);
 	// void dSortInput();
+
+	static std::deque<std::pair<int, int> >::iterator getPair(int toFind, std::deque<std::pair<int, int> > *pairs);
+	static void makePairs(std::deque<int> toSort, std::deque<std::pair<int, int> > *pairs);
+	static std::deque<int> makeNewList(std::deque<std::pair<int, int> > pairs);
+	static void sortPairs(std::deque<std::pair<int, int> > *pairs);
+	static std::deque<int>::iterator insertInSorted(std::deque<int> *sorted, int intToInsert, std::deque<std::pair<int, int> > *pairs, std::deque<std::pair<int, int> >::iterator pairToAdd);
+	static void addRemainingPairs(std::deque<int> *sorted, std::deque<std::pair<int, int> > *pairs);
+	static void jacobsthalInsert(std::deque<std::pair<int, int> > *pairs, std::deque<int> *sorted);
 
 	class InvalidParameters : public std::exception
 	{
