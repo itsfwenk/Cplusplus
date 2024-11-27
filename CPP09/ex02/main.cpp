@@ -135,11 +135,11 @@ int main(int ac, char **av)
 		for (size_t i = 0; i < input.size(); i++)
 		{
 			std::cout << input[i] << " ";
-			// if (i > 4)
-			// {
-			// 	std::cout << "[...]";
-			// 	break;
-			// }
+			if (i > 4)
+			{
+				std::cout << "[...]";
+				break;
+			}
 		}
 		std::cout << std::endl;
 
@@ -149,17 +149,22 @@ int main(int ac, char **av)
 		for (size_t i = 0; i < input.size(); i++)
 		{
 			std::cout << sorted[i] << " ";
-			// if (i > 4)
-			// {
-			// 	std::cout << "[...]";
-			// 	break;
-			// }
+			if (i > 4)
+			{
+				std::cout << "[...]";
+				break;
+			}
 		}
 		std::cout << std::endl;
 		std::cout << "Time to process a range of " << input.size();
 		std::cout << " elements with std::vector : ";
 		std::cout << double(end_time - start_time) / CLOCKS_PER_SEC * 1000000;
 		std::cout << " us" << std::endl;
+
+		std::vector<int> vec(input.begin(), input.end());
+		std::sort(vec.begin(), vec.end());
+		if (vec == sorted)
+			std::cout << "Sorted succesfully!" << std::endl;
 	}
 	catch (const std::exception& e)
 	{

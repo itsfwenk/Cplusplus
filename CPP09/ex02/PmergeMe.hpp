@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 16:52:12 by fli               #+#    #+#             */
-/*   Updated: 2024/11/27 11:39:18 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/27 19:49:05 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ class PmergeMe
 	// static bool pairAdded(int n);
 	// static std::vector<int>::iterator leftBetween(std::vector<std::pair<int, int> > *pairs, std::vector<int> *sorted, int start, int end);
 	static std::vector<int>::iterator insertInSorted(std::vector<int> *sorted, int intToInsert, std::vector<std::pair<int, int> > *pairs, std::vector<std::pair<int, int> >::iterator pairToAdd);
+	static void addRemainingPairs(std::vector<int> *sorted, std::vector<std::pair<int, int> > *pairs);
 	static void jacobsthalInsert(std::vector<std::pair<int, int> > *pairs, std::vector<int> *sorted);
 
 	// void dAddInput(long long n);
