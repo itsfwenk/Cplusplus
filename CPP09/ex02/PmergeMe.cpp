@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 16:52:11 by fli               #+#    #+#             */
-/*   Updated: 2024/11/26 17:58:25 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/27 01:00:58 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -336,34 +336,55 @@ void PmergeMe::sortPairs(std::vector<std::pair<int, int> > *pairs)
 	}
 }
 
-std::vector<int>::iterator PmergeMe::leftBetween(std::vector<std::pair<int, int> > *pairs, std::vector<int> *sorted, int start, int end)
-{
-	std::vector<int>::iterator it = std::find(sorted->begin(), sorted->end(), start);
-	std::vector<int>::iterator ite = std::find(sorted->begin(), sorted->end(), end);
+// std::vector<int>::iterator PmergeMe::leftBetween(std::vector<std::pair<int, int> > *pairs, std::vector<int> *sorted, int start, int end)
+// {
+// 	std::cout << "//////////////IN LEFT BETWEEN//////" << std::endl;
+// 	std::cout << "start is " << start << std::endl;
+// 	std::cout << "end is " << end << std::endl;
+// 	std::vector<int>::iterator it = std::find(sorted->begin(), sorted->end(), start);
+// 	std::vector<int>::iterator ite = std::find(sorted->begin(), sorted->end(), end);
+// 	std::cout << "it is " << *it << std::endl;
+// 	std::cout << "ite is " << *ite << std::endl;
 
-	int i = 0;
-	std::vector<std::pair<int, int> >::iterator itPair;
-	while (it != ite)
-	{
-		try
-		{
-			itPair = PmergeMe::getPair(*it, pairs);
-			return it;
-		}
-		catch (const std::exception& e)
-		{
-			i++;
-			it++;
-			continue;
-		}
-	}
-	return sorted->end();
-}
+// 	int i = 0;
+// 	std::vector<std::pair<int, int> >::iterator itPair;
+// 	while (it != ite)
+// 	{
+// 		std::cout << "hello" << std::endl;
+// 		try
+// 		{
+// 			std::cout << "IT IS " << *it << std::endl;
+// 			itPair = PmergeMe::getPair(*it, pairs);
+// 			return it;
+// 		}
+// 		catch (const std::exception& e)
+// 		{
+// 			i++;
+// 			it++;
+// 			continue;
+// 		}
+// 	}
+// 	return sorted->end();
+// }
+
+// std::vector<std::pair<int, int> >::iterator PmergeMe::getPair(int toFind, std::vector<std::pair<int, int> > *pairs)
+// {
+// 	for (std::vector<std::pair<int, int> >::iterator it = pairs->begin(); it != pairs->end(); it++)
+// 	{
+// 		if (it->first == toFind || it->second == toFind)
+// 		{
+// 			std::cout << "returned pair is " << it->first << " " << it->second << std::endl;
+// 			return it;
+// 		}
+// 	}
+// 	throw OutOfRange();
+// }
 
 void PmergeMe::jacobsthalInsert(std::vector<std::pair<int, int> > *pairs, std::vector<int> *sorted)
 {
+	std::vector<int> initial_list = *sorted;
 	size_t pairvecsize = pairs->size();
-	std::cout << "IN JACOB INSERT" << std::endl;
+	std::cout << "****IN JACOB INSERT*******" << std::endl;
 	std::cout << "in sorted : ";
 	for (std::vector<int>::iterator it = sorted->begin(); it != sorted->end(); it++)
 	{
@@ -395,9 +416,11 @@ void PmergeMe::jacobsthalInsert(std::vector<std::pair<int, int> > *pairs, std::v
 		try
 		{
 			size_t jac = PmergeMe::getJacobsthal(i);
-			if (jac >= pairvecsize)
+			std::cout << "JACOBSTAHL INDEX IS " << jac << std::endl;
+			std::cout << "PAIRVECSIZE IS " << pairvecsize << std::endl;
+			if (jac > pairvecsize)
 				break;
-			pairToAdd = PmergeMe::getPair((*sorted)[jac], pairs);
+			pairToAdd = PmergeMe::getPair(initial_list[jac - 1], pairs);
 		}
 		catch (const std::exception& e)
 		{
@@ -405,23 +428,35 @@ void PmergeMe::jacobsthalInsert(std::vector<std::pair<int, int> > *pairs, std::v
 			exit(EXIT_FAILURE);
 		}
 		int intToInsert = pairToAdd->first;
+		std::cout << "intToInsert is " << intToInsert << std::endl;
 		std::vector<int>::iterator it = std::upper_bound(sorted->begin(), sorted->end(), intToInsert);
+		// int insertedBefore = *it;
 		sorted->insert(it, intToInsert);
 		pairs->erase(pairToAdd);
-		std::vector<int>::iterator toInsert = PmergeMe::leftBetween(pairs, sorted, *sorted->begin(), intToInsert);
-		if (toInsert != sorted->end())
-		{
-			while (*toInsert != intToInsert)
-			{
-				pairToAdd = PmergeMe::getPair(*toInsert, pairs);
-				it = std::upper_bound(sorted->begin(), sorted->end(), pairToAdd->first);
-				sorted->insert(it, pairToAdd->first);
-				pairs->erase(pairToAdd);
-				toInsert++;
-			}
-		}
+		// std::vector<int>::iterator toInsert = PmergeMe::leftBetween(pairs, sorted, *sorted->begin(), insertedBefore);
+		// std::cout << "WHATS LEFT toInsert is " << *toInsert << std::endl;
+		// if (toInsert != sorted->end())
+		// {
+		// 	std::cout << "++++++++++++++++++++++++++++++++++++++" << std::endl;
+		// 	while (*toInsert != intToInsert)
+		// 	{
+		// 		pairToAdd = PmergeMe::getPair(*toInsert, pairs);
+		// 		it = std::upper_bound(sorted->begin(), sorted->end(), pairToAdd->first);
+		// 		sorted->insert(it, pairToAdd->first);
+		// 		pairs->erase(pairToAdd);
+		// 		toInsert++;
+		// 	}
+		// }
+
 		i++;
 	}
+	std::cout << "INITIAL LIST CHECK" << std::endl;
+	for (std::vector<int>::iterator it = initial_list.begin(); it != initial_list.end(); it++)
+	{
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+	std::cout << "|||||||||||||||||||||||||||||||||||||||||||||||||" << std::endl;
 }
 
 static int iteration = 0;
