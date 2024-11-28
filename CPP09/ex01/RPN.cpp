@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 14:50:01 by mli               #+#    #+#             */
-/*   Updated: 2024/11/24 16:45:58 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/28 22:54:36 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void RPN::checkinput(std::string input)
 	size_t i = 0;
 	while (i < input.length() && input[i] == ' ')
 		i++;
-	if (!isdigit(input[i]) && input[i] != '-' && input[i] != '+')
+	if (!isdigit(input[i]) && input[i] == '-' && input[i] != '+')
 		throw InvalidRPN();
 	for (size_t j = i; j < input.length(); j++)
 	{

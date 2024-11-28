@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mli <mli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 14:04:37 by fli               #+#    #+#             */
-/*   Updated: 2024/11/24 13:58:48 by mli              ###   ########.fr       */
+/*   Updated: 2024/11/28 23:36:56 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,10 +136,24 @@ void	BitcoinExchange::checkdate(std::string date)
 
 	if (!strptime(date.c_str(), "%Y-%m-%d", &time))
 		throw BadInput();
-	// if (it->second < 0)
-	// 	throw NotPositiveNumber();
-	// if (it->second > 1000)
-	// 	throw TooLargeNumber();
+
+	if (time.tm_mon < 0 || time.tm_mon > 11)
+		throw BadInput();
+
+
+	int day = std::atoi(date.substr(8, 2).c_str());
+	int month = std::atoi(date.substr(5, 2).c_str());
+	int year = std::atoi(date.substr(0, 4).c_str());
+	// std::cout << day << " " << month << " " << year << std::endl;
+
+	static const int days_in_month[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	int max_day = days_in_month[time.tm_mon];
+
+	if (month == 2 && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)))
+		max_day = 29;
+
+	if (day < 1 || day > max_day)
+		throw BadInput();
 }
 
 void	BitcoinExchange::checkvalue(double value)
