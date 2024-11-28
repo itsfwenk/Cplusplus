@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 14:50:00 by mli               #+#    #+#             */
-/*   Updated: 2024/11/24 16:04:54 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/29 00:08:17 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 class RPN
 {
 	private:
-	std::stack<int> _stack;
+	std::stack<double> _stack;
 
 	public:
 	RPN();
@@ -44,7 +44,7 @@ class RPN
 	void divide();
 	void calculate(std::string input);
 
-	int getTop();
+	double getTop();
 
 	class InvalidRPN : public std::exception
 	{

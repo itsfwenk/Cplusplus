@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 14:50:01 by mli               #+#    #+#             */
-/*   Updated: 2024/11/28 22:54:36 by fli              ###   ########.fr       */
+/*   Updated: 2024/11/29 00:10:28 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ void RPN::checkvalue(double value)
 
 void RPN::add()
 {
-	long long a = this->_stack.top();
+	double a = this->_stack.top();
 	this->_stack.pop();
-	long long b = this->_stack.top();
+	double b = this->_stack.top();
 	this->_stack.pop();
 	RPN::checkvalue(a + b);
 	this->_stack.push(a + b);
@@ -91,19 +91,19 @@ void RPN::add()
 
 void RPN::subtract()
 {
-	long long a = this->_stack.top();
+	double a = this->_stack.top();
 	this->_stack.pop();
-	long long b = this->_stack.top();
+	double b = this->_stack.top();
 	this->_stack.pop();
-	RPN::checkvalue(a - b);
+	RPN::checkvalue(b - a);
 	this->_stack.push(b - a);
 }
 
 void RPN::multiply()
 {
-	long long a = this->_stack.top();
+	double a = this->_stack.top();
 	this->_stack.pop();
-	long long b = this->_stack.top();
+	double b = this->_stack.top();
 	this->_stack.pop();
 	RPN::checkvalue(a * b);
 	this->_stack.push(a * b);
@@ -111,9 +111,9 @@ void RPN::multiply()
 
 void RPN::divide()
 {
-	long long a = this->_stack.top();
+	double a = this->_stack.top();
 	this->_stack.pop();
-	long long b = this->_stack.top();
+	double b = this->_stack.top();
 	this->_stack.pop();
 	RPN::checkvalue(b / a);
 	this->_stack.push(b / a);
@@ -126,7 +126,7 @@ void RPN::calculate(std::string input)
 	while (it != input.end() && *it == ' ')
 		it++;
 
-	long long value;
+	double value;
 	char c;
 	std::string substr;
 	while (it != input.end())
@@ -135,7 +135,7 @@ void RPN::calculate(std::string input)
 		c = substr[0];
 		if (isdigit(c) || ((c == '-' || c == '+') && it + 1 != input.end() && isdigit(it[1])))
 		{
-			value = std::atoll(substr.c_str());
+			value = std::atof(substr.c_str());
 			this->_stack.push(value);
 			while (it != input.end() && *it != ' ')
 				it++;
@@ -156,7 +156,7 @@ void RPN::calculate(std::string input)
 	}
 }
 
-int RPN::getTop()
+double RPN::getTop()
 {
 	return (this->_stack.top());
 }
